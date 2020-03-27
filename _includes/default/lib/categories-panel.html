@@ -1,0 +1,34 @@
+{% assign parent_category = include.category %}
+
+{% assign cl = site.data.categories | where: 'parent', parent_category%}
+{% assign cl_size = cl | size %}
+{% if cl_size > 0 %}
+<div class="panel none-padding none-top-margin"><b>类别：</b></div>
+<div class="panel none-padding none-top-margin">
+    <div class="flex">
+    {% for categories_list in cl %}
+        <div class="item">
+            <a title="{{ categories_list.name }}" href="{{ categories_list.url }}">{{ categories_list.name }}
+                {% assign ccount = site.data.categories | where: 'parent', categories_list.name | size %}
+                {% if ccount > 0%}({{ccount}}){% endif %}
+            </a>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}
+
+{% assign categories_post = site.posts | where: 'category' , parent_category %}
+{% assign categories_post_size = categories_post | size %}
+{% if categories_post_size > 0 %}
+<div class="panel none-padding none-top-margin"><b>页面：({{categories_post_size}})</b></div>
+<div class="panel none-padding none-top-margin">
+    <div class="flex">
+    {% for c_post in categories_post %}
+        <div class="item">
+            <a title="{{ c_post.title }}" href="{{ c_post.url }}">{{ c_post.title }}</a>
+        </div>
+    {% endfor %}
+    </div>
+</div>
+{% endif %}

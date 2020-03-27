@@ -1,0 +1,22 @@
+<div class="article-container">
+    <div class="article-container-inner">
+        <div class="article-header">
+            <div class="article-header-title">{{page.title}}</div>
+        </div>
+        
+        <div class="article-content">
+            {% if page.toc == true %}
+            {% include {{ site.data.application.theme }}/lib/article-toc.html title=page.title content=page.content %}            
+            {% endif %}
+            {{page.content}}
+        </div>
+    </div>
+</div>
+<script>
+    var achor_link = function(name){
+        document.querySelector("a[name="+name+"]").scrollIntoView()
+    }
+    var achor_link_forid = function(id){
+        document.querySelector("#"+id).scrollIntoView()
+    }
+</script>

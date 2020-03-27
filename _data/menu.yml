@@ -1,0 +1,38 @@
+- name: 首页
+  url: /
+  item:
+    - name: 首页
+      url: /
+      icon: home_14x14.gif
+      mate:
+        - title: 首页
+          message: Personal knowledge base 
+
+    - name: 联系我们
+      url: /sendmessage.html
+      icon: email_14x14.gif
+
+- name: 订阅
+  url: 
+  item: 
+    - name: Rss订阅
+      url: javascript:alert('还没有完成');
+      icon: rss.gif
+
+    - name: 邮件订阅
+      url: javascript:alert('还没有完成');
+      icon: email_subscribe.gif
+      mate:
+        - title: 邮件订阅
+          message: 通过电子邮件订阅文章 
+
+- name: 帮助
+  url: 
+  item: 
+    - name: 关于
+      url: /about.html
+      icon: about_16x16.png
+
+    - name: 捐助
+      url: javascript:alert('还没有完成');
+      icon: donations.gif

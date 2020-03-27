@@ -1,0 +1,4 @@
+markdown: kramdown
+plugins:
+  - jekyll-sitemap
+  # - jekyll-feed

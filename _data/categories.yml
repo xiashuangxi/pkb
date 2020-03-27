@@ -1,0 +1,54 @@
+# 一级
+
+- name: root
+  parent: nill
+
+- name: 编程语言
+  parent: root
+  url: /Category:编程语言
+
+- name: 软件工程
+  parent: root
+  url: /Category:软件工程
+
+- name: 法律
+  parent: root
+  url: /Category:法律
+
+- name: 医疗
+  parent: root
+  url: /Category:医疗
+
+- name: 健康
+  parent: root
+  url: /Category:健康
+
+- name: 算法
+  parent: root
+  url: /Category:算法
+
+# Level 2
+- name: Rust
+  parent: 编程语言
+  url: /Category:Rust
+
+- name: C
+  parent: 编程语言
+  url: /Category:C
+
+- name: Ada
+  parent: 编程语言
+  url: /Category:Ada
+
+- name: Common List
+  parent: 编程语言
+  url: /Category:Common List
+
+- name: Java
+  parent: 编程语言
+  url: /Category:Java
+
+# Level 3
+- name: ncurses
+  parent: C
+  url: /Category:ncurses

@@ -1,0 +1,7 @@
+name: 个人知识库
+
+namespace: pkb
+
+theme: default
+
+run_env: dev

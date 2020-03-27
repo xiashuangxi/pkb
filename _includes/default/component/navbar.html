@@ -1,0 +1,71 @@
+<div class="header-container">
+    <div class="header-inner">
+        <div class="nav-container">
+            <div class="left-scope"></div>
+            <div class="nav">
+                {% for menu in site.data.menu %}
+                {% if menu.item %}
+                <ul>
+                    <div class="item" onmouseover="show_subitem('{{menu.name}}')" onmouseout="hide_subitem('{{menu.name}}')">
+                        <a>{{menu.name}}</a>
+                        <span class="item-split"></span>
+                    </div>
+                    <div class="item-subitem" sub-id="{{menu.name}}" onmouseover="show_subitem('{{menu.name}}')" onmouseout="hide_subitem('{{menu.name}}')" hide>
+                    {% for item in menu.item %}    
+                        <li>
+                            <a href="{{item.url}}">
+                                <div class="subitem-icon">
+                                    {% if item.icon %}
+                                    <img src="{{ assets_path}}/images/{{item.icon}}">
+                                    {% endif %}
+                                </div>
+                                <div>
+                                    {% if item.mate %} 
+                                        <b>{{ item.mate[0].title }}</b>
+                                        <div style="font-weight: 500;">{{ item.mate[0].message }}</div>
+                                    {%else%} 
+                                        {{ item.name }} 
+                                    {% endif %}
+                                </div>
+                            </a>
+                        </li>
+                    {% endfor %}
+                    </div>
+                </ul>
+                {% else %}
+                <div class="item">
+                    <a href="{{menu.url}}" >{{menu.name}}</a>
+                    <span class="item-split"></span>
+                </div>
+                {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    // window.onload=function (){}
+
+    var show_subitem = function(tag){
+        if (tag){
+            var subitem = document.querySelector("[sub-id= '"+tag+"']");
+            var ishide = subitem.getAttribute('hide');
+            if (ishide != null) {
+                subitem.removeAttribute('hide');
+                subitem.setAttribute('show','');
+            }
+        }
+    }
+
+    var hide_subitem = function(tag){
+        if (tag){
+            var subitem = document.querySelector("[sub-id= '"+tag+"']");
+            var ishide = subitem.getAttribute('show');
+            if (ishide != null) {
+                subitem.removeAttribute('show');
+                subitem.setAttribute('hide','');
+            }
+        }
+    }
+</script>

@@ -1,0 +1,32 @@
+{% assign title = include.title %}
+{% assign nodes = include.content | split: '<h' %}
+
+<div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3 
+border-wide-lr-v-1 border-right-coarse-solid-line border-left-coarse-solid-line
+shadow" style="width: 20vw;float: right;margin-left: 6px;">
+    <div class="title">主要分类</div>
+    <div class="toc-container">
+        <div class="toc-container-inner">
+            <div class="toc-title">{{ title }}</div>
+            <ul>
+                {% for node in nodes %}
+                    {% if node == "" %}{% continue %}{% endif %}
+                    {% assign headerLevel = node | replace: '"', '' | slice: 0, 1 | times: 1 %}
+                    {% if headerLevel < 1 %}{% continue %}{% endif %}
+                    {% assign indentAmount = headerLevel | minus: 1 %}
+                    {% assign workspace = node | split: '</h' %}
+                    {% assign _id = workspace[0] | split: 'id="' %}
+                    {% assign _id = _id[1] | split: '"' %}
+                    {% assign html_id = _id[0] %}
+
+                    {% assign space = '' %}
+                    {% for i in (1..indentAmount) %}
+                        {% assign space = space | prepend: '&nbsp;&nbsp;&nbsp;&nbsp;' %}
+                    {% endfor %}
+                    <!-- 【{{space}}|{{ headerLevel }} | {{ indentAmount }} | {{ html_id }} 】 -->
+                    <li><a title="{{html_id}}" href="javascript:achor_link_forid('{{ html_id }}');">{{ space }}{{ html_id }}</a></li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</div>

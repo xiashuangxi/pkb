@@ -1,0 +1,14 @@
+<!-- <script src="{{assets_path}}/scripts/lib/angular.min.js"></script> -->
+<script src="{{assets_path}}/scripts/lib/jquery.min.js"></script>
+<!-- emoji -->
+<script src="{{assets_path}}/scripts/lib/jQueryEmoji.min.js"></script>
+<script src="{{assets_path}}/scripts/lib/jQueryEmoji_un.js"></script>
+<script>
+$(function(){
+	$('p').Emoji({
+		path:  '{{assets_path}}/images/img/emojione/',
+		class: 'emoji',
+		ext:   'png'
+	});
+});
+</script>
