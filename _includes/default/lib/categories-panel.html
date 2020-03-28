@@ -8,7 +8,7 @@
     <div class="flex">
     {% for categories_list in cl %}
         <div class="item">
-            <a title="{{ categories_list.name }}" href="{{ categories_list.url }}">{{ categories_list.name }}
+            <a title="{{ categories_list.name }}" href="{% include link-lib.html link=categories_list.url %}">{{ categories_list.name }}
                 {% assign ccount = site.data.categories | where: 'parent', categories_list.name | size %}
                 {% if ccount > 0%}({{ccount}}){% endif %}
             </a>
@@ -26,7 +26,7 @@
     <div class="flex">
     {% for c_post in categories_post %}
         <div class="item">
-            <a title="{{ c_post.title }}" href="{{ c_post.url }}">{{ c_post.title }}</a>
+            <a title="{{ c_post.title }}" href="{% include link-lib.html link=c_post.url %}">{{ c_post.title }}</a>
         </div>
     {% endfor %}
     </div>
