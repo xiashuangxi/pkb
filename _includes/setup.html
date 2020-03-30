@@ -1,7 +1,6 @@
 {% capture cache %}
     {% if site.data.application.run_env == "dev" %}
         {% capture assets_path %}/assets{% endcapture %}
-        {% capture namespace %}{% endcapture %}
     {% else %}
         {% capture assets_path %}/{{ site.data.application.namespace}}/assets{% endcapture %}
         {% capture namespace %}{{ site.data.application.namespace}}{% endcapture %}
