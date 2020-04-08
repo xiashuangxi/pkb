@@ -1,4 +1,8 @@
 markdown: kramdown
 plugins:
   - jekyll-sitemap
-  # - jekyll-feed
+  - jekyll-feed
+  
+title: Xia Shuangxi 的个人知识库
+description: 知识库
+author: Xia Shuangxi

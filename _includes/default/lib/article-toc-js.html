@@ -1,0 +1,155 @@
+{% assign title = include.title %}
+{% assign nodes = include.content | split: '<h' %}
+
+<div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3 
+border-wide-lr-v-1 border-right-coarse-solid-line border-left-coarse-solid-line
+shadow" style="width: 20vw;float: right;margin-left: 6px;">
+    <div class="title">主要分类</div>
+    <div class="toc-container">
+        <div class="toc-container-inner">
+            <div class="toc-title">{{ title }}</div>
+            <ul id="toc-root">
+                
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+   
+
+    var node = function(data){
+        this.data = data;
+        this.parent = null;
+        this.child = [];
+        this.level = 0;
+    }
+
+    var toc = function(data) {
+        this.__root = new node(data)
+    }
+
+    window.onload = function() {
+        var content = document.body.innerHTML
+        // 得到所有h标签 (\<h\d.*?\>).*?(\<\/h\d\>)
+        // 得到h标签的级别 (\<h)[\d] => h1
+        // 得到h标签中的innerHTML (?<=\<h\d.*?\>).*?(?=\<\/h\d\>)
+        // 得到h标签中的id属性值   (?<=id=").*?(?=\">) // ((\<h)[\d]\sid=").*?
+
+        var harr = content.match(/(\<h\d.*?\>).*?(\<\/h\d\>)/g);
+        // console.log(harr);
+
+        var prev_level = 0;
+
+        var bool = true;
+        for (var j = 0; j < harr.length; j++ ){   
+            var level = harr[j].match(/(\<h)[\d]/g)[0].replace("<h","");
+            gen_toc_item(level, harr[j])
+        }
+        // console.log(_root);
+        // var ul = document.createElement("ul");
+        var ul = document.querySelector("#toc-root");
+        gen_toc_html(ul,_root.__root,null);
+
+       
+    }
+
+    var gen_toc_html = function(panel,toc_tree, index) {
+
+        var _inx = "";
+        if (toc_tree.child.length > 0){        
+            for (var i = 0; i < toc_tree.child.length; i++ ){
+                var li = document.createElement("li");
+                var cl = toc_tree.child[i];
+                var content = cl.data.match(/(?<=\<h\d.*?\>).*?(?=\<\/h\d\>)/g);
+                var id_content = cl.data.match(/(?<=id=").*?(?=\">)/g);
+                li.setAttribute("id",content);
+                
+                var link = document.createElement("a")
+                link.setAttribute("title", content);
+                link.setAttribute("href","javascript:achor_link_forid('"+id_content+"');");
+                
+
+                if (index != null){
+                    _inx= index+"."+(i+1);
+                    link.innerText = index+"."+(i+1)+"."+content;
+                }else {
+                    _inx = (i+1);
+                    link.innerText = (i+1)+"."+content;
+                }
+                
+
+                li.appendChild(link)
+
+                panel.appendChild(li)
+                if (cl.child.length >0 ){
+                    var ul = document.createElement("ul");
+                    panel.appendChild(ul);
+                    gen_toc_html(ul,cl,_inx)
+                }
+
+            } 
+        }else {
+                var li = document.createElement("li");
+                var cl = toc_tree.child[i];
+                var content = cl.data.match(/(?<=\<h\d.*?\>).*?(?=\<\/h\d\>)/g);
+                li.setAttribute("id",content);
+                li.innerText = content;
+                panel.appendChild(li)
+        }
+    }
+
+    var _root = new toc("Root");
+    var _parent = null;
+    var gen_toc_item = function(level, item) {
+        if (level == 1){
+            var l_node = new node(item);
+            l_node.parent = _root;
+            l_node.level = level;
+            _root.__root.child.push(l_node)
+
+            _parent = l_node;
+
+        }else {
+
+            var p = parent_for_level(_parent, level);
+            var l_node = new node(item);
+            l_node.parent = p;
+            l_node.level = level;
+            p.child.push(l_node)
+
+            _parent = l_node;
+        }
+
+    }
+
+    var parent_for_level = function(parent,level){
+        
+        if (parent.level == level){
+            return parent.parent;
+        }
+        // parent.level = 4
+        // level        = 3
+        // + 1
+        // +---+ 2
+        //     +---+ 3
+        //     |   +---+ 4    => parent.level
+        //     +---+ 3        => level 
+        if (parent.level > level){
+            return parent_for_level(parent.parent, level);
+        }
+        // parent.level = 4
+        // level        = 3
+        // + 1
+        // +---+ 2
+        //     +---+ 3
+        //     |   +---+ 4    => level
+        //     +---+ 3        => parent.level 
+        if (parent.level < level){
+            // if ((level - parent.level) == 1){
+            //     return parent;
+            // } else { return }
+
+            return parent;
+        }
+    }
+</script>

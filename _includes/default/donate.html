@@ -1,0 +1,70 @@
+<div id="page-donate" class="main-container">
+    <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3
+    border-top-coarse-solid-line border-wide-t-3
+    border-right-coarse-solid-line border-left-coarse-solid-line shadow">
+        <div>
+            如果您觉得文章对您有用，并且有价值，可以通过以下途径进行捐助。💓<br>
+            {% include setup.html %}
+            <a target="_block" title="PayPal" href="https://www.paypal.me/xiashuangxi"><img style="width: 48px; height: auto;" src="{{assets_path}}/images/PayPal_48px.png"/></a>
+            
+            <a title="Alipay" href="javascript:pay('Alipay')"><img style="width: auto; height: 25px;" src="{{assets_path}}/images/alipay.png"/></a>
+            
+            <a title="WeChat" href="javascript:pay('WeChat')"><img style="width: auto; height: 25px;" src="{{assets_path}}/images/wechat_pay_weixin.png"/></a>
+        </div>
+    </div>
+
+    <div class="donate-panel" id="donate-panel" hide>
+        <!-- <img class="donate-image" src="{{assets_path}}/images/alipay_rqcode.jpg">
+        <div class="donate-close-btn">关闭，我不想进行捐助😊</div> -->
+    </div>
+</div>
+
+<script>
+    var pay  = function(t) {
+        var panel = document.getElementById("donate-panel");
+        var baseurl = "{{assets_path}}/images/";
+        var baseclosetext = "<a href='javascript:pay_show_toggle()'>关闭，我不想进行捐助😊</a>";
+
+        var img = document.createElement("img");
+        img.setAttribute("class", "donate-image");
+
+        var cls = document.createElement("div");
+        cls.setAttribute("class", "donate-close-btn");
+        cls.innerHTML = baseclosetext;
+
+        if (t == "Alipay"){
+            img.setAttribute("src",  baseurl+"alipay_rqcode.jpg");
+        } else if (t == "WeChat") {
+            img.setAttribute("src",  baseurl+"wechat_rqcode.jpg");
+        }
+
+        var childs = panel.childNodes;
+        for(var i=childs.length-1; i>=0; i--){    
+            panel.removeChild(childs.item(i));    
+        } 
+        panel.appendChild(img);
+        panel.appendChild(cls);
+        //pay_show_toggle()
+
+        panel.removeAttribute("hide");
+        panel.setAttribute("show","");
+        
+    }
+
+
+    var pay_show_toggle = function(){
+        var panel = document.getElementById("donate-panel");
+        var hide = panel.getAttribute("hide");
+        if (hide != null) {
+            console.log('y')
+            panel.removeAttribute("hide");
+            panel.setAttribute("show","");
+        } else {
+            console.log('N')
+            panel.removeAttribute("show");
+            panel.setAttribute("hide","");
+        }
+
+    }
+
+</script>

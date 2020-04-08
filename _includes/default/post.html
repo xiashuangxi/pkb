@@ -5,9 +5,15 @@
         </div>
         
         <div class="article-content">
-            {% if page.toc == true %}
-            {% include {{ site.data.application.theme }}/lib/article-toc.html title=page.title content=page.content %}            
-            {% endif %}
+            <div class="panel vertical float-right none-padding">
+                {% if page.toc == true %}
+                {% include {{ site.data.application.theme }}/lib/article-toc-js.html title=page.title content=page.content %}            
+                {% endif %}
+
+                <!-- {% if page.update_history_show == true %}
+                {% include {{ site.data.application.theme }}/lib/update-history.html %}            
+                {% endif %} -->
+            </div>
             {{page.content}}
         </div>
     </div>

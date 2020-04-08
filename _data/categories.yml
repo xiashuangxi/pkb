@@ -27,6 +27,10 @@
   parent: root
   url: /Category:算法
 
+- name: 编辑器
+  parent: root
+  url: /Category:编辑器
+
 # Level 2
 - name: Rust
   parent: 编程语言
@@ -47,6 +51,14 @@
 - name: Java
   parent: 编程语言
   url: /Category:Java
+
+- name: Vim
+  parent: 编辑器
+  url: /Category:Vim
+
+- name: Emacs
+  parent: 编辑器
+  url: /Category:Emacs
 
 # Level 3
 - name: ncurses

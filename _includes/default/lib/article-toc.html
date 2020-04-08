@@ -18,13 +18,13 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;">
                     {% assign _id = workspace[0] | split: 'id="' %}
                     {% assign _id = _id[1] | split: '"' %}
                     {% assign html_id = _id[0] %}
-
+                
                     {% assign space = '' %}
                     {% for i in (1..indentAmount) %}
                         {% assign space = space | prepend: '&nbsp;&nbsp;&nbsp;&nbsp;' %}
                     {% endfor %}
                     <!-- 【{{space}}|{{ headerLevel }} | {{ indentAmount }} | {{ html_id }} 】 -->
-                    <li><a title="{{html_id}}" href="javascript:achor_link_forid('{{ html_id }}');">{{ space }}{{ html_id }}</a></li>
+                    <li><a title="{{html_id}}" href="javascript:achor_link_forid('{{ html_id }}');">{{ space }}{{_id[1] | split: '>'}}</a></li>
                 {% endfor %}
             </ul>
         </div>

@@ -1,0 +1,15 @@
+<div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3 
+border-wide-lr-v-1 border-right-coarse-solid-line border-left-coarse-solid-line
+shadow">
+    <div class="title">修改记录</div>
+    <div class="toc-container">
+        <div class="toc-container-inner">
+            <ul>
+                {% for uh in page.update_history %}
+                    <li>{{uh.date}}:{{uh.content}}</li>
+                {% endfor %}
+                
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,75 @@
+<style>
+    .ms-input {
+        font-size: 11px;
+        padding: 2px;
+        margin: 0px 2px;
+    }
+
+    .ms-button {
+        font-size: 11px;
+        background-color: antiquewhite;
+        border: 1px solid;
+        cursor: pointer;
+        box-shadow: 1px 1px 2px #4d4d4d;
+    }
+    .ms-button:active{
+        box-shadow: none;
+    }
+</style>
+<div class="main-container">
+    <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3
+    border-top-coarse-solid-line border-wide-t-3
+    border-right-coarse-solid-line border-left-coarse-solid-line shadow">
+        <div>
+            🔵 如果您对我的文章感兴趣，而且想我们主动给你推送文章，请提交您的邮箱地址：
+            <br>
+            我的邮箱地址：<input id="email" class="ms-input" type="text"/><button onclick="subscribe()" class="ms-button">提交邮箱地址</button>
+            <br>
+            🔴 我不喜欢推送的文章、不稳定、质量太差、其它原因，想取消邮件订阅：
+            <br>
+            我的邮箱地址：<input id="unemail" class="ms-input" type="text"/><button onclick="unsubscribe()" class="ms-button">取消订阅</button>
+            
+        </div>
+    </div>
+</div>
+{% include setup.html %}
+<!-- <script src="{{assets_path}}/scripts/lib/Bmob-2.2.4.min.js"></script>
+<script src="{{assets_path}}/scripts/data.js"></script> -->
+
+<script src="//cdn.jsdelivr.net/npm/leancloud-storage@4.5.3/dist/av-min.js"></script>
+<script src="{{assets_path}}/scripts/data.js"></script>
+<script>
+    var checkemail = function(email) {
+        var pattern = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/
+        return pattern.test(email);
+    }
+
+    var subscribe = function(){
+        var email = document.getElementById("email").value;
+        if(email.trim().length==0){
+            alert("🛑 请输入邮箱地址 ☺")
+            return;
+        }
+        console.log("email", email);
+        if ( checkemail(email)){
+            subscribe_to_network(email)
+        }else{
+            alert("🛑 请输入正确的邮箱地址 ☺")
+            return;
+        }
+    }
+    var unsubscribe = function(){
+        var email = document.getElementById("unemail").value;
+        if(email.trim().length==0){
+            alert("🛑 请输入邮箱地址 ☺")
+            return;
+        }
+        if ( checkemail(email)){
+            unsubscribe_to_network(email)
+        }else{
+            alert("🛑 请输入正确的邮箱地址 ☺")
+            return;
+        }
+    }
+</script>
+
