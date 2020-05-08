@@ -41,34 +41,49 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;">
         var prev_level = 0;
 
         var bool = true;
+        var index_level = 1;
         for (var j = 0; j < harr.length; j++ ){   
             var level = harr[j].match(/(\<h)[\d]/g)[0].replace("<h","");
-            gen_toc_item(level, harr[j])
+            // console.log(harr[j])
+            var content =  harr[j].replace(/(id=").*?(?=\">)/g, "").replace("\"","");
+            content = content.substring(0,4) + "id="+index_level + content.substring(4,content.length);
+
+            var id_content = harr[j].match(/(?<=id=").*?(?=\">)/g);
+            var obj = document.querySelector("#"+id_content[0])
+            // console.log(obj)
+            obj.setAttribute("goto_tag",index_level);
+
+            index_level++;
+
+
+            gen_toc_item(level, content )
         }
         // console.log(_root);
         // var ul = document.createElement("ul");
         var ul = document.querySelector("#toc-root");
+        
         gen_toc_html(ul,_root.__root,null);
 
        
     }
 
     var gen_toc_html = function(panel,toc_tree, index) {
-
         var _inx = "";
         if (toc_tree.child.length > 0){        
             for (var i = 0; i < toc_tree.child.length; i++ ){
                 var li = document.createElement("li");
                 var cl = toc_tree.child[i];
                 var content = cl.data.match(/(?<=\<h\d.*?\>).*?(?=\<\/h\d\>)/g);
-                var id_content = cl.data.match(/(?<=id=").*?(?=\">)/g);
+                // var id_content = cl.data.match(/(?<=id=").*?(?=\">)/g);
+                var id_content = cl.data.match(/(?<=id=).*?(?=\>)/g);
                 li.setAttribute("id",content);
+                // console.log(cl.data)
                 
                 var link = document.createElement("a")
                 link.setAttribute("title", content);
                 link.setAttribute("href","javascript:achor_link_forid('"+id_content+"');");
+                // link.setAttribute("href","javascript:achor_link_forid('"+index_level+"');");
                 
-
                 if (index != null){
                     _inx= index+"."+(i+1);
                     link.innerText = index+"."+(i+1)+"."+content;
@@ -106,7 +121,6 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;">
             l_node.parent = _root;
             l_node.level = level;
             _root.__root.child.push(l_node)
-
             _parent = l_node;
 
         }else {

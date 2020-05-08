@@ -339,6 +339,48 @@ code, kbd, pre, samp {
     margin: 1.65rem auto;
 }
 
+.article-content table{
+    border-collapse:  collapse;
+}
+
+.article-content table,
+.article-content table tr th,
+.article-content table tr td{
+    border: black 1px solid;
+    padding: 0 2px;
+}
+.article-container td>code,
+.article-container li>code,
+.article-container p>code{
+    color: #0000ff;
+}
+.article-container h1,
+.article-container h2,
+.article-container h3,
+.article-container h4,
+.article-container h5,
+.article-container h6{
+    /* display: inline-block; */
+    display: table;
+}
+.article-container h1::after,
+.article-container h2::after,
+.article-container h3::after,
+.article-container h4::after,
+.article-container h5::after,
+.article-container h6::after{
+    content: " ";
+    background-color: #ffb580;
+    height: 0.5rem;
+    width: calc( 100% + 10px );
+    display: flex;
+    bottom: 8px;
+    margin-bottom: -8px;
+    z-index: -1;
+    position: relative;
+    
+}
+
 .article-container-inner .article-content h1,
 .article-container-inner .article-content h2,
 .article-container-inner .article-content h3,

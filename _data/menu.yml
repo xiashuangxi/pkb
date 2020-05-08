@@ -7,6 +7,10 @@
       mate:
         - title: 首页
           message: Personal knowledge base 
+    
+    - name: 个人博客
+      url: http://www.xiashuangxiblog.com
+      
 
     - name: 联系我们
       url: /sendmessage.html

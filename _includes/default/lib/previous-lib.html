@@ -1,0 +1,14 @@
+{% assign category = include.category %}
+{% for x in site.data.categories %}
+    {% if category == x.name %}
+        {% if x.parent != 'root' %}
+            {% for j in site.data.categories %}
+                {% if j.name == x.parent %}
+                    <a href="{{ j.url }}" title="{{ j.name }}">【向上】</a>
+                    {% break %}
+                {% endif %}
+            {% endfor%}
+        {% endif %}
+        {% break %}
+    {% endif %}
+{% endfor %}

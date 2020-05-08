@@ -4,4 +4,4 @@ namespace: pkb
 
 theme: default
 
-run_env: prod
+run_env: dev

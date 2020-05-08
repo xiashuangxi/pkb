@@ -64,3 +64,12 @@
 - name: ncurses
   parent: C
   url: /Category:ncurses
+
+- name: crates
+  parent: Rust
+  url: /Category:crates
+
+# Level 4
+- name: serde
+  parent: crates
+  url: /Category:serde

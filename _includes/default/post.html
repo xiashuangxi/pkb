@@ -1,4 +1,5 @@
-<div class="article-container">
+
+<div class="article-container panel">
     <div class="article-container-inner">
         <div class="article-header">
             <div class="article-header-title">{{page.title}}</div>
@@ -23,6 +24,8 @@
         document.querySelector("a[name="+name+"]").scrollIntoView()
     }
     var achor_link_forid = function(id){
-        document.querySelector("#"+id).scrollIntoView()
+        //document.querySelector("#"+id).scrollIntoView();
+        document.querySelector("[goto_tag=\""+id+"\"]").scrollIntoView()
+        
     }
 </script>
