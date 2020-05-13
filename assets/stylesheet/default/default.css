@@ -5,6 +5,7 @@ body{
     font-size: 12px;
     line-height: 1.125rem;
     font-family: 'Helvetica Neue',Helvetica,'Lucida Grande','Luxi Sans',Arial,'PingFang SC','Hiragino Sans GB',STHeiti,'Microsoft YaHei','Wenquanyi Micro Hei','WenQuanYi Micro Hei Mono','WenQuanYi Zen Hei','WenQuanYi Zen Hei Mono',LiGothicMed;
+    background-color: #f6f7f8;
 }
 
 .hide,
@@ -354,17 +355,26 @@ code, kbd, pre, samp {
 .article-container p>code{
     color: #0000ff;
 }
-.article-container h1,
+
+.article-container h1{
+    border-bottom: 1.2px solid black;
+    display: flex;
+}
+/* .article-container h1, */
 .article-container h2,
 .article-container h3,
 .article-container h4,
 .article-container h5,
 .article-container h6{
     /* display: inline-block; */
-    display: table;
+    /* display: table;
+    font-size: 120%; */
+    display: flex;
+    /* padding-bottom: 4px; */
+    border-bottom: 1px solid black;
 }
-.article-container h1::after,
-.article-container h2::after,
+/* .article-container h1::after, */
+/* .article-container h2::after,
 .article-container h3::after,
 .article-container h4::after,
 .article-container h5::after,
@@ -379,7 +389,7 @@ code, kbd, pre, samp {
     z-index: -1;
     position: relative;
     
-}
+} */
 
 .article-container-inner .article-content h1,
 .article-container-inner .article-content h2,
