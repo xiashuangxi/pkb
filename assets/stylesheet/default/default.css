@@ -32,6 +32,8 @@ strong {
 
 a{
     cursor: pointer;
+    border-bottom: #b98c6f dotted 1px;
+    padding-bottom: 1px;
 }
 
 a:link,
@@ -40,6 +42,8 @@ a:hover  {
     color: #b98c6f;
     text-decoration: none;
 }
+
+
 
 /* padding */
 /* .none-padding {
@@ -357,8 +361,10 @@ code, kbd, pre, samp {
 }
 
 .article-container h1{
-    border-bottom: 1.2px solid black;
+    /* border-bottom: 1.2px solid black;
+    display: flex; */
     display: flex;
+    background-color: #4d4d4d60;
 }
 /* .article-container h1, */
 .article-container h2,
@@ -369,9 +375,9 @@ code, kbd, pre, samp {
     /* display: inline-block; */
     /* display: table;
     font-size: 120%; */
-    display: flex;
+    /* display: flex; */
     /* padding-bottom: 4px; */
-    border-bottom: 1px solid black;
+    /* border-bottom: 1px solid black; */
 }
 /* .article-container h1::after, */
 /* .article-container h2::after,

@@ -5,16 +5,16 @@
         <div>
             如果您觉得文章对您有用，并且有价值，可以通过以下途径进行捐助。💓<br>
             {% include setup.html %}
-            <a target="_block" title="PayPal" href="https://www.paypal.me/xiashuangxi"><img style="width: 48px; height: auto;" src="{{assets_path}}/images/PayPal_48px.png"/></a>
+            <a target="_block" title="PayPal" href="https://www.paypal.me/xiashuangxi"><img style="width: 48px; height: auto;" src="{{namespace}}/assets/images/PayPal_48px.png"/></a>
             
-            <a title="Alipay" href="javascript:pay('Alipay')"><img style="width: auto; height: 25px;" src="{{assets_path}}/images/alipay.png"/></a>
+            <a title="Alipay" href="javascript:pay('Alipay')"><img style="width: auto; height: 25px;" src="{{namespace}}/assets/images/alipay.png"/></a>
             
-            <a title="WeChat" href="javascript:pay('WeChat')"><img style="width: auto; height: 25px;" src="{{assets_path}}/images/wechat_pay_weixin.png"/></a>
+            <a title="WeChat" href="javascript:pay('WeChat')"><img style="width: auto; height: 25px;" src="{{namespace}}/assets/images/wechat_pay_weixin.png"/></a>
         </div>
     </div>
 
     <div class="donate-panel" id="donate-panel" hide>
-        <!-- <img class="donate-image" src="{{assets_path}}/images/alipay_rqcode.jpg">
+        <!-- <img class="donate-image" src="{{namespace}}/assets/images/alipay_rqcode.jpg">
         <div class="donate-close-btn">关闭，我不想进行捐助😊</div> -->
     </div>
 </div>
@@ -22,7 +22,7 @@
 <script>
     var pay  = function(t) {
         var panel = document.getElementById("donate-panel");
-        var baseurl = "{{assets_path}}/images/";
+        var baseurl = "{{namespace}}/assets/images/";
         var baseclosetext = "<a href='javascript:pay_show_toggle()'>关闭，我不想进行捐助😊</a>";
 
         var img = document.createElement("img");

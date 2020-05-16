@@ -13,10 +13,10 @@
                     <div class="item-subitem" sub-id="{{menu.name}}" onmouseover="show_subitem('{{menu.name}}')" onmouseout="hide_subitem('{{menu.name}}')" hide>
                     {% for item in menu.item %}    
                         <li>
-                            <a href="{% include link-lib.html link=item.url%}">
+                            <a href="{{namespace}}{{item.url}}">
                                 <div class="subitem-icon">
                                     {% if item.icon %}
-                                    <img src="{{ assets_path}}/images/{{item.icon}}">
+                                    <img src="{{namespace}}/assets/images/{{item.icon}}">
                                     {% endif %}
                                 </div>
                                 <div>
@@ -34,7 +34,7 @@
                 </ul>
                 {% else %}
                 <div class="item">
-                    <a href="{% include link-lib.html link=menu.url %}" >{{menu.name}}</a>
+                    <a href="{{namespace}}{{menu.url}}" >{{menu.name}}</a>
                     <span class="item-split"></span>
                 </div>
                 {% endif %}
