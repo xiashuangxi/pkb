@@ -13,7 +13,7 @@
                     <div class="item-subitem" sub-id="{{menu.name}}" onmouseover="show_subitem('{{menu.name}}')" onmouseout="hide_subitem('{{menu.name}}')" hide>
                     {% for item in menu.item %}    
                         <li>
-                            <a href="{{namespace}}{{item.url}}">
+                            <a {% if item.outitial %}target="{{item.outitial}}" href="{{item.url}}" {% else %} href="{{namespace}}{{item.url}}" {% endif %} >
                                 <div class="subitem-icon">
                                     {% if item.icon %}
                                     <img src="{{namespace}}/assets/images/{{item.icon}}">

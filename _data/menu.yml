@@ -9,6 +9,7 @@
           message: Personal knowledge base 
     
     - name: 个人博客
+      outitial: _blank
       url: https://xiashuangxi.github.io/bookphrase/
       
 
