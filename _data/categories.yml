@@ -60,6 +60,11 @@
   parent: 编辑器
   url: /Category:Emacs
 
+- name: 数据结构
+  parent: 算法
+  url: /Category:数据结构
+
+
 # Level 3
 - name: ncurses
   parent: C
@@ -68,6 +73,11 @@
 - name: crates
   parent: Rust
   url: /Category:crates
+
+- name: 线型结构
+  parent: 数据结构
+  url: /Category:线型结构
+
 
 # Level 4
 - name: serde

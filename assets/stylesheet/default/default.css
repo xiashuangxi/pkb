@@ -363,8 +363,12 @@ code, kbd, pre, samp {
 .article-container h1{
     /* border-bottom: 1.2px solid black;
     display: flex; */
+    /* display: flex;
+    background-color: #4d4d4d60; */
+
     display: flex;
-    background-color: #4d4d4d60;
+    background-color: #ffd7a5;
+    /* padding-left: 6px; */
 }
 /* .article-container h1, */
 .article-container h2,
