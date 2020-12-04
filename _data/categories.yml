@@ -36,8 +36,28 @@
   url: /Category:行政管理
 
 - name: 英文
-  parent: root
+  parent: root  
   url: /Category:英文
+
+- name: 日语
+  parent: root
+  url: /Category:日语
+
+- name: 工商管理
+  parent: root
+  url: /Category:工商管理
+
+- name: 文学
+  parent: root
+  url: /Category:文学
+
+- name: 哲学
+  parent: root
+  url: /Category:哲学
+
+- name: 历史
+  parent: root
+  url: /Category:历史 
 
 # Level 2
 - name: Rust
@@ -87,6 +107,10 @@
 - name: 音标
   parent: 英文
   url: /Category:音标
+
+- name: 现在企业管理
+  parent: 工商管理
+  url: /Category:现在企业管理
 
 # Level 3
 - name: ncurses
