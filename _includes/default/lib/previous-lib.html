@@ -5,7 +5,7 @@
         {% if x.parent != 'root' %}
             {% for j in site.data.categories %}
                 {% if j.name == x.parent %}
-                    <a href="{{namespace}}{{ j.url }}" title="{{ j.name }}">【向上】-【{{namespace}}】</a>
+                    <a href="{{namespace}}{{ j.url }}" title="{{ j.name }}">【向上】</a>
                     {% break %}
                 {% endif %}
             {% endfor%}
