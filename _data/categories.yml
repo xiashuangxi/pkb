@@ -31,6 +31,14 @@
   parent: root
   url: /Category:编辑器
 
+- name: 行政管理
+  parent: root
+  url: /Category:行政管理
+
+- name: 英文
+  parent: root
+  url: /Category:英文
+
 # Level 2
 - name: Rust
   parent: 编程语言
@@ -64,6 +72,21 @@
   parent: 算法
   url: /Category:数据结构
 
+- name: 公文写作与处理
+  parent: 行政管理
+  url: /Category:公文写作与处理
+
+- name: 行政管理学
+  parent: 行政管理
+  url: /Category:行政管理学
+
+- name: 管理心理学
+  parent: 行政管理
+  url: /Category:管理心理学
+
+- name: 音标
+  parent: 英文
+  url: /Category:音标
 
 # Level 3
 - name: ncurses
