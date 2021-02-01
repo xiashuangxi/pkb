@@ -3,130 +3,130 @@
 - name: root
   parent: nill
 
-- name: 编程语言
-  parent: root
-  url: /Category:编程语言
+# - name: 编程语言
+#   parent: root
+#   url: /Category:编程语言
 
-- name: 软件工程
-  parent: root
-  url: /Category:软件工程
+# - name: 软件工程
+#   parent: root
+#   url: /Category:软件工程
 
-- name: 法律
-  parent: root
-  url: /Category:法律
+# - name: 法律
+#   parent: root
+#   url: /Category:法律
 
-- name: 医疗
-  parent: root
-  url: /Category:医疗
+# - name: 医疗
+#   parent: root
+#   url: /Category:医疗
 
-- name: 健康
-  parent: root
-  url: /Category:健康
+# - name: 健康
+#   parent: root
+#   url: /Category:健康
 
-- name: 算法
-  parent: root
-  url: /Category:算法
+# - name: 算法
+#   parent: root
+#   url: /Category:算法
 
-- name: 编辑器
-  parent: root
-  url: /Category:编辑器
+# - name: 编辑器
+#   parent: root
+#   url: /Category:编辑器
 
-- name: 行政管理
-  parent: root
-  url: /Category:行政管理
+# - name: 行政管理
+#   parent: root
+#   url: /Category:行政管理
 
-- name: 英文
-  parent: root  
-  url: /Category:英文
+# - name: 英文
+#   parent: root  
+#   url: /Category:英文
 
-- name: 日语
-  parent: root
-  url: /Category:日语
+# - name: 日语
+#   parent: root
+#   url: /Category:日语
 
-- name: 工商管理
-  parent: root
-  url: /Category:工商管理
+# - name: 工商管理
+#   parent: root
+#   url: /Category:工商管理
 
-- name: 文学
-  parent: root
-  url: /Category:文学
+# - name: 文学
+#   parent: root
+#   url: /Category:文学
 
-- name: 哲学
-  parent: root
-  url: /Category:哲学
+# - name: 哲学
+#   parent: root
+#   url: /Category:哲学
 
-- name: 历史
-  parent: root
-  url: /Category:历史 
+# - name: 历史
+#   parent: root
+#   url: /Category:历史 
 
-# Level 2
-- name: Rust
-  parent: 编程语言
-  url: /Category:Rust
+# # Level 2
+# - name: Rust
+#   parent: 编程语言
+#   url: /Category:Rust
 
-- name: C
-  parent: 编程语言
-  url: /Category:C
+# - name: C
+#   parent: 编程语言
+#   url: /Category:C
 
-- name: Ada
-  parent: 编程语言
-  url: /Category:Ada
+# - name: Ada
+#   parent: 编程语言
+#   url: /Category:Ada
 
-- name: Common List
-  parent: 编程语言
-  url: /Category:Common List
+# - name: Common List
+#   parent: 编程语言
+#   url: /Category:Common List
 
-- name: Java
-  parent: 编程语言
-  url: /Category:Java
+# - name: Java
+#   parent: 编程语言
+#   url: /Category:Java
 
-- name: Vim
-  parent: 编辑器
-  url: /Category:Vim
+# - name: Vim
+#   parent: 编辑器
+#   url: /Category:Vim
 
-- name: Emacs
-  parent: 编辑器
-  url: /Category:Emacs
+# - name: Emacs
+#   parent: 编辑器
+#   url: /Category:Emacs
 
-- name: 数据结构
-  parent: 算法
-  url: /Category:数据结构
+# - name: 数据结构
+#   parent: 算法
+#   url: /Category:数据结构
 
-- name: 公文写作与处理
-  parent: 行政管理
-  url: /Category:公文写作与处理
+# - name: 公文写作与处理
+#   parent: 行政管理
+#   url: /Category:公文写作与处理
 
-- name: 行政管理学
-  parent: 行政管理
-  url: /Category:行政管理学
+# - name: 行政管理学
+#   parent: 行政管理
+#   url: /Category:行政管理学
 
-- name: 管理心理学
-  parent: 行政管理
-  url: /Category:管理心理学
+# - name: 管理心理学
+#   parent: 行政管理
+#   url: /Category:管理心理学
 
-- name: 音标
-  parent: 英文
-  url: /Category:音标
+# - name: 音标
+#   parent: 英文
+#   url: /Category:音标
 
-- name: 现在企业管理
-  parent: 工商管理
-  url: /Category:现在企业管理
+# - name: 现代企业管理
+#   parent: 工商管理
+#   url: /Category:现代企业管理
 
-# Level 3
-- name: ncurses
-  parent: C
-  url: /Category:ncurses
+# # Level 3
+# - name: ncurses
+#   parent: C
+#   url: /Category:ncurses
 
-- name: crates
-  parent: Rust
-  url: /Category:crates
+# - name: crates
+#   parent: Rust
+#   url: /Category:crates
 
-- name: 线型结构
-  parent: 数据结构
-  url: /Category:线型结构
+# - name: 线型结构
+#   parent: 数据结构
+#   url: /Category:线型结构
 
 
-# Level 4
-- name: serde
-  parent: crates
-  url: /Category:serde
+# # Level 4
+# - name: serde
+#   parent: crates
+#   url: /Category:serde
