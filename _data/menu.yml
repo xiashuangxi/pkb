@@ -24,12 +24,12 @@
       url: /rss.html
       icon: rss.gif
 
-    - name: 邮件订阅
-      url: /mailsubscribe.html
-      icon: email_subscribe.gif
-      mate:
-        - title: 邮件订阅
-          message: 通过电子邮件订阅文章 
+    #- name: 邮件订阅
+    #  url: /mailsubscribe.html
+    #  icon: email_subscribe.gif
+    #  mate:
+    #    - title: 邮件订阅
+    #      message: 通过电子邮件订阅文章 
 
 - name: 帮助
   url: 
