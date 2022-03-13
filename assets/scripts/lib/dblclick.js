@@ -1,5 +1,7 @@
 function setupExtDoubleClick(websiteUrl, dictionary, showFirstEntry, areaClass, maxAllowedWords, target) {
     setupDoubleClick(websiteUrl, dictionary, areaClass, maxAllowedWords, target,
+        // UK : https://dictionary.cambridge.org/dictionary/english/
+        // ZH : https://dictionary.cambridge.org/zhs/%E8%AF%8D%E5%85%B8/%E8%8B%B1%E8%AF%AD/
         function(websiteUrl, dictionary, showFirstEntry, lookup) { return websiteUrl + "search/" + (dictionary ? dictionary + "/" : "") + (showFirstEntry ? "direct/" : "") + "?q=" + lookup; });
 }
 
