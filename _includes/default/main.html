@@ -11,7 +11,7 @@
         </div>
     </div>
 
-    {% assign cl = site.data.categories | where: 'parent', parent_category%}
+    {% assign cl = site.data.categories | where: 'parent', 'root' %}
     {% assign cl_size = cl | size %}
     {% if cl_size > 0 %}
     <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3
