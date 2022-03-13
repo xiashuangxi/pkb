@@ -11,11 +11,15 @@
         </div>
     </div>
 
+    {% assign cl = site.data.categories | where: 'parent', parent_category%}
+    {% assign cl_size = cl | size %}
+    {% if cl_size > 0 %}
     <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3
     border-right-coarse-solid-line border-left-coarse-solid-line shadow">
         <div class="title">主要分类</div>
         <div>{% include {{ site.data.application.theme }}/lib/categories-panel.html category='root' %}</div>
     </div>
+    {% endif %}
 
     <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3
     border-right-coarse-solid-line border-left-coarse-solid-line shadow">
