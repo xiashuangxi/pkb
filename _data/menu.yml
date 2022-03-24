@@ -17,6 +17,9 @@
       url: /sendmessage.html
       icon: email_14x14.gif
 
+- name: 地图（中图法）
+  url: /map.html
+
 - name: 订阅
   url: 
   item: 
