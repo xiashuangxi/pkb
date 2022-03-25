@@ -20,6 +20,10 @@
 - name: 地图（中图法）
   url: /map.html
 
+- name: 个人图书馆
+  outitial: _blank
+  url: https://xiashuangxi.github.io/eb
+
 - name: 订阅
   url: 
   item: 
