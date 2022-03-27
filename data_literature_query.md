@@ -25,7 +25,7 @@ layout: default
 
 ## 外交
 [FOCUSdata](https://focusdataproject.com/)
-收集了来自俄罗斯、朝鲜、中国、伊朗等国英文官方媒体报道与外资声明数据。
+收集了来自俄罗斯、朝鲜、中国、伊朗等国英文官方媒体报道与外交声明数据。
 
 ## 环境
 [全球植被观察](https://www.globalforestwatch.org/)
