@@ -21,7 +21,7 @@
                                 </div>
                                 <div>
                                     {% if item.mate %} 
-                                        <b>{{ item.mate[0].title }}</b>
+                                        <b>{{ item.mate[0].title }} [{{random}}]</b>
                                         <div style="font-weight: 500;">{{ item.mate[0].message }}</div>
                                     {%else%} 
                                         {{ item.name }} 
