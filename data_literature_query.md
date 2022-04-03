@@ -2,7 +2,7 @@
 layout: default
 ---
 ## 文献查找 
-[中国知网](https://www.cnki.net/)
+[深圳市图书馆](https://szlib.org.cn/index.html?locale=zh_CN)
 
 [Connected Paper](https://www.connectedpapers.com/)
 
