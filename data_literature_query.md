@@ -41,3 +41,6 @@ Web of Science中的Science Citation Index-Expanded，即科学引文索引，�
 
 ## 环境
 [全球植被观察](https://www.globalforestwatch.org/)
+
+## 其它
+[中国科学院沈阳自动化研究所图书馆](http://opac.sia.cn/)
