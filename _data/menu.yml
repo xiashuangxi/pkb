@@ -38,6 +38,9 @@
     #    - title: 邮件订阅
     #      message: 通过电子邮件订阅文章 
 
+- name: 知识关系
+  url: /kb_map.html
+
 - name: 帮助
   url: 
   item: 
