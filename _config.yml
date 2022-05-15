@@ -12,4 +12,4 @@ plugins:
 title: Xia Shuangxi 的个人知识库
 description: 知识库
 author: Xia Shuangxi
-# permalink: /blog/posts/:year/:month/:day/:title:output_ext
+permalink: /pbk/:year/:month/:day/:title:output_ext
