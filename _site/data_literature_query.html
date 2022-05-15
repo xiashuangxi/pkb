@@ -1,0 +1,343 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <base href="/"> -->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<link rel="shortcut icon" type="image/ico" href="
+
+/assets/favicon/favicon.ico" />
+
+<title></title>
+<link rel="stylesheet" href="
+
+/assets/stylesheet/lib/highlight.min.css?v=" />
+<link rel="stylesheet" href="
+
+/assets/stylesheet/default/default.css?v=" />
+
+<link rel="stylesheet" href="
+
+/assets/stylesheet/style.css?=" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header-container">
+    <div class="header-inner">
+        <div class="nav-container">
+            <div class="left-scope"></div>
+            <div class="nav">
+                
+                
+                <ul>
+                    <div class="item" onmouseover="show_subitem('首页')" onmouseout="hide_subitem('首页')">
+                        <a>首页</a>
+                        <span class="item-split"></span>
+                    </div>
+                    <div class="item-subitem" sub-id="首页" onmouseover="show_subitem('首页')" onmouseout="hide_subitem('首页')" hide>
+                        
+                        <li>
+                            <a  href="
+
+/"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/home_14x14.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        <b>首页</b>
+                                        <div style="font-weight: 500;">Personal knowledge base</div>
+                                    
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a target="_blank" href="https://xiashuangxi.github.io/bookphrase/"  >
+                                <div class="subitem-icon">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        个人博客 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a  href="
+
+/sendmessage.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/email_14x14.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        联系我们 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                    </div>
+                </ul>
+                
+                
+                
+                <div class="item">
+                    <a  target="_blank" href="https://xiashuangxi.github.io/eb"  >个人图书馆</a>
+                    <span class="item-split"></span>
+                </div>
+                
+                
+                
+                <div class="item">
+                    <a  href="
+
+/data_literature_query.html"  >数据/文献查询</a>
+                    <span class="item-split"></span>
+                </div>
+                
+                
+                
+                <ul>
+                    <div class="item" onmouseover="show_subitem('订阅')" onmouseout="hide_subitem('订阅')">
+                        <a>订阅</a>
+                        <span class="item-split"></span>
+                    </div>
+                    <div class="item-subitem" sub-id="订阅" onmouseover="show_subitem('订阅')" onmouseout="hide_subitem('订阅')" hide>
+                        
+                        <li>
+                            <a  href="
+
+/rss.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/rss.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        Rss订阅 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                    </div>
+                </ul>
+                
+                
+                
+                <div class="item">
+                    <a  href="
+
+/kb_map.html"  >知识关系</a>
+                    <span class="item-split"></span>
+                </div>
+                
+                
+                
+                <ul>
+                    <div class="item" onmouseover="show_subitem('帮助')" onmouseout="hide_subitem('帮助')">
+                        <a>帮助</a>
+                        <span class="item-split"></span>
+                    </div>
+                    <div class="item-subitem" sub-id="帮助" onmouseover="show_subitem('帮助')" onmouseout="hide_subitem('帮助')" hide>
+                        
+                        <li>
+                            <a  href="
+
+/about.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/about_16x16.png">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        关于 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a  href="
+
+/donate.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/donations.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        捐助 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                    </div>
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script>
+    // window.onload=function (){}
+
+    var show_subitem = function(tag){
+        if (tag){
+            var subitem = document.querySelector("[sub-id= '"+tag+"']");
+            var ishide = subitem.getAttribute('hide');
+            if (ishide != null) {
+                subitem.removeAttribute('hide');
+                subitem.setAttribute('show','');
+            }
+        }
+    }
+
+    var hide_subitem = function(tag){
+        if (tag){
+            var subitem = document.querySelector("[sub-id= '"+tag+"']");
+            var ishide = subitem.getAttribute('show');
+            if (ishide != null) {
+                subitem.removeAttribute('show');
+                subitem.setAttribute('hide','');
+            }
+        }
+    }
+</script>
+            <div class="main-content">
+                <h2 id="文献查找">文献查找</h2>
+<p><a href="https://szlib.org.cn/index.html?locale=zh_CN">深圳市图书馆</a></p>
+
+<p><a href="https://www.connectedpapers.com/">Connected Paper</a></p>
+
+<p><a href="https://www.researchrabbitapp.com/">Research Rabbit</a></p>
+
+<p><a href="https://www.webofscience.com">web of science</a>
+Web of Science是获取全球学术信息的重要数据库，它收录了全球13000多种权威的、高影响力的学术期刊，内容涵盖自然科学、工程技术、生物医学、社会科学、艺术与人文等领域。Web of Science收录了论文中所引用的参考文献，通过独特的引文索引，用户可以用一篇文章、一个专利号、一篇会议文献、一本期刊或者一本书作为检索词，检索它们的被引用情况，轻松回溯某一研究文献的起源与历史，或者追踪其最新进展；可以越查越广、越查越新、越查越深。</p>
+
+<p>Web of Science中的Science Citation Index-Expanded，即科学引文索引，是一个涵盖了自然科学领域的多学科综合数据库，共收录9000多种自然科学领域的世界权威期刊，数据最早回溯至1900年（我校此次订购回溯至2009年），覆盖了177个学科领域。</p>
+
+<h2 id="司法类">司法类</h2>
+<p><a href="http://zxgk.court.gov.cn/">中国执行信息公开网</a></p>
+
+<p><a href="https://wenshu.court.gov.cn/">中国裁判文书网</a></p>
+
+<p><a href="https://flk.npc.gov.cn/">国家法律法规数据库</a></p>
+
+<p><a href="http://www.cppcc.gov.cn/">中国人民政治协商会议全国委员会</a></p>
+
+<h2 id="消费">消费</h2>
+<p><a href="https://www.cca.org.cn/">中国消费者协会</a></p>
+
+<h2 id="交通">交通</h2>
+<p><a href="https://aviation-safety.net/">ASN航空安全数据库</a></p>
+
+<h2 id="健康">健康</h2>
+<p><a href="https://www.healthdata.org/">华盛顿大学健康指标与评估研究所</a></p>
+
+<p><a href="https://www.thelancet.com/">柳叶刀</a></p>
+
+<p><a href="https://www.medspal.org/">专利许可数据库MedsPaL</a></p>
+
+<h2 id="外交">外交</h2>
+<p><a href="https://focusdataproject.com/">FOCUSdata</a>
+收集了来自俄罗斯、朝鲜、中国、伊朗等国英文官方媒体报道与外交声明数据。</p>
+
+<h2 id="环境">环境</h2>
+<p><a href="https://www.globalforestwatch.org/">全球植被观察</a></p>
+
+<h2 id="其它">其它</h2>
+<p><a href="http://opac.sia.cn/">中国科学院沈阳自动化研究所图书馆</a></p>
+
+            </div>
+            <div class="footer-container">
+    <div class="footer-inner">
+        <div class="content">
+            <div>
+                &copy; 2022年 Xia Shuangxi 版权所有，保留所有权利。
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+                    <img alt="知识共享许可协议" style="border-width:0" src="/worknotes/assets/images/license-80x15.png">
+                </a>
+            </div>
+            <div>如果有任何意见或建议，请发送电子邮件 <a href="mailto:xiashuangxi@hotmail.com">xiashuangxi@hotmail.com</a> 给网站管理员。</div>
+            <!-- 剑桥翻译 iframe -->
+            <div>
+                <form action='https://dictionary.cambridge.org/zhs/%E6%90%9C%E7%B4%A2/%E8%8B%B1%E8%AF%AD/direct/' method='get' target='_blank'> <input type='hidden' name='utm_source' value='widget_searchbox_source'/> <input type='hidden' name='utm_medium' value='widget_searchbox'/> <input type='hidden' name='utm_campaign' value='widget_tracking'/> <table style='font-family:Arial,Helvetica,sans-serif;font-size:10px;background:#1D2A57;border-collapse:collapse;border-spacing:0;width:150px;background-image:linear-gradient(to right,#0f193d,#2c2f62,#1a2753)'> <caption style='display:none;'>CUP free search box</caption> <tbody> <tr> <td colspan='2' style='padding:0;background:none;border:none;'> <a href='https://dictionary.cambridge.org/zhs/' style='display:block;background:transparent url(https://dictionary.cambridge.org/zhs/external/images/freesearch/sbl.png?version=5.0.225) no-repeat 5px 6px;height:32px;'></a> </td> </tr> <tr> <td style='width:130px;background:none;border:none;padding:0;font-size:10px;border-collapse:collapse;border-spacing:0;'> <input style='margin:4px;padding:0 0 0 3px;display:block;font-family:Arial,Helvetica,sans-serif;font-size:10px;border:1px solid #ddd;border-radius:20px;box-shadow:inset 1px 1px 2px 0 rgba(0,0,0,0.1);color:#444;' name='q' placeholder='Search English' type='search' title='search' dir='auto' role='textbox' autocomplete='off' aria-controls='search' aria-multiline='false' aria-expanded='false' aria-label='Search' aria-required='true' aria-invalid='false' /> </td> <td style='width:20px;background:none;border:none;padding:0 4px 0 0;font-size:10px;border-collapse:collapse;border-spacing:0;'> <button style='width:15px;height:15px;vertical-align:top;display:inline-block;border:none;border-radius:50%;text-align:center;text-transform:none;padding:0;background:#FEC400;cursor:pointer;overflow:hidden;' title='Search' type='submit'> <img src='https://dictionary.cambridge.org/zhs/external/images/freesearch/search.png?version=5.0.225' style='vertical-align:-1px;border:none;height:auto;margin:0;padding:0;text-align:center;'/> </button> </td> </tr> </tbody> </table> </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </body>
+    <!-- <script src="/scripts/lib/angular.min.js"></script> -->
+<script src="
+
+/assets/scripts/lib/jquery.min.js"></script>
+<!-- emoji -->
+<script src="
+
+/assets/scripts/lib/jQueryEmoji.min.js"></script>
+<script src="
+
+/assets/scripts/lib/jQueryEmoji_un.js"></script>
+<script src="
+
+/assets/scripts/lib/highlight.min.js"></script>
+<!-- <script src="
+
+/assets/scripts/lib/runtime.js"></script> -->
+<script src="
+
+/assets/scripts/lib/dblclick.js"></script>
+
+<script>
+	// https://dictionary.cambridge.org/search/direct/p?hello
+	// english-chinese-simplified
+	// https://dictionary.cambridge.org/spellcheck/english-chinese-simplified/?q=Shuangxi
+	setupDoubleClick( 'https://dictionary.cambridge.org/', 'british', false, null, 5, 'popup' )
+// $(function(){
+// 	$('p').Emoji({
+// 		path:  '/images/img/emojione/',
+// 		class: 'emoji',
+// 		ext:   'png'
+// 	});
+// });
+
+// document.onload = function() {
+	hljs.initHighlightingOnLoad();
+// }
+</script>
+</html>
+
+1

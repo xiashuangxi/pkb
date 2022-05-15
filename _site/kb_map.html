@@ -1,0 +1,664 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <!-- <base href="/"> -->
+<meta charset="utf-8">
+
+<meta http-equiv="Content-Language" content="zh-cn">
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+
+<link rel="shortcut icon" type="image/ico" href="
+
+/assets/favicon/favicon.ico" />
+
+<title></title>
+<link rel="stylesheet" href="
+
+/assets/stylesheet/lib/highlight.min.css?v=" />
+<link rel="stylesheet" href="
+
+/assets/stylesheet/default/default.css?v=" />
+
+<link rel="stylesheet" href="
+
+/assets/stylesheet/style.css?=" />
+    </head>
+    <body>
+        <div class="wrapper">
+            <div class="header-container">
+    <div class="header-inner">
+        <div class="nav-container">
+            <div class="left-scope"></div>
+            <div class="nav">
+                
+                
+                <ul>
+                    <div class="item" onmouseover="show_subitem('首页')" onmouseout="hide_subitem('首页')">
+                        <a>首页</a>
+                        <span class="item-split"></span>
+                    </div>
+                    <div class="item-subitem" sub-id="首页" onmouseover="show_subitem('首页')" onmouseout="hide_subitem('首页')" hide>
+                        
+                        <li>
+                            <a  href="
+
+/"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/home_14x14.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        <b>首页</b>
+                                        <div style="font-weight: 500;">Personal knowledge base</div>
+                                    
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a target="_blank" href="https://xiashuangxi.github.io/bookphrase/"  >
+                                <div class="subitem-icon">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        个人博客 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a  href="
+
+/sendmessage.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/email_14x14.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        联系我们 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                    </div>
+                </ul>
+                
+                
+                
+                <div class="item">
+                    <a  target="_blank" href="https://xiashuangxi.github.io/eb"  >个人图书馆</a>
+                    <span class="item-split"></span>
+                </div>
+                
+                
+                
+                <div class="item">
+                    <a  href="
+
+/data_literature_query.html"  >数据/文献查询</a>
+                    <span class="item-split"></span>
+                </div>
+                
+                
+                
+                <ul>
+                    <div class="item" onmouseover="show_subitem('订阅')" onmouseout="hide_subitem('订阅')">
+                        <a>订阅</a>
+                        <span class="item-split"></span>
+                    </div>
+                    <div class="item-subitem" sub-id="订阅" onmouseover="show_subitem('订阅')" onmouseout="hide_subitem('订阅')" hide>
+                        
+                        <li>
+                            <a  href="
+
+/rss.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/rss.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        Rss订阅 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                    </div>
+                </ul>
+                
+                
+                
+                <div class="item">
+                    <a  href="
+
+/kb_map.html"  >知识关系</a>
+                    <span class="item-split"></span>
+                </div>
+                
+                
+                
+                <ul>
+                    <div class="item" onmouseover="show_subitem('帮助')" onmouseout="hide_subitem('帮助')">
+                        <a>帮助</a>
+                        <span class="item-split"></span>
+                    </div>
+                    <div class="item-subitem" sub-id="帮助" onmouseover="show_subitem('帮助')" onmouseout="hide_subitem('帮助')" hide>
+                        
+                        <li>
+                            <a  href="
+
+/about.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/about_16x16.png">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        关于 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                        
+                        <li>
+                            <a  href="
+
+/donate.html"  >
+                                <div class="subitem-icon">
+                                    
+                                    <img src="
+
+/assets/images/donations.gif">
+                                    
+                                </div>
+                                <div>
+                                     
+                                        捐助 
+                                    
+                                </div>
+                            </a>
+                        </li>
+                    
+                    </div>
+                </ul>
+                
+                
+            </div>
+        </div>
+    </div>
+</div>
+    
+<script>
+    // window.onload=function (){}
+
+    var show_subitem = function(tag){
+        if (tag){
+            var subitem = document.querySelector("[sub-id= '"+tag+"']");
+            var ishide = subitem.getAttribute('hide');
+            if (ishide != null) {
+                subitem.removeAttribute('hide');
+                subitem.setAttribute('show','');
+            }
+        }
+    }
+
+    var hide_subitem = function(tag){
+        if (tag){
+            var subitem = document.querySelector("[sub-id= '"+tag+"']");
+            var ishide = subitem.getAttribute('show');
+            if (ishide != null) {
+                subitem.removeAttribute('show');
+                subitem.setAttribute('hide','');
+            }
+        }
+    }
+</script>
+            <div class="main-content">
+                <h1 id="知识关系图">知识关系图</h1>
+
+<div id="svg" style="border: 1px solid;overflow: auto"></div>
+<!-- <svg width="1500" height="600"></svg> -->
+<!-- feed -->
+<!-- https://xiashuangxi.github.io/pkb/feed.xml -->
+
+<script src="
+
+/assets/scripts/lib/jquery.min.js"></script>
+
+<script src="
+
+/assets/scripts/lib/d3.v7.min.js"></script>
+
+<script>
+
+	// var nodes = [];
+	// var links = [];
+
+	// var load_rss_json = function() {
+	// 	var json;
+	// 	// rss ulr
+	// 	// test: https://xiashuangxi.github.io/bookphrase/feed.xml
+	// 	// examples:https://observablehq.com/@d3/mobile-patent-suits
+	// 	var feedURL = "https://xiashuangxi.github.io/bookphrase/feed.xml";
+	// 	$.ajax({
+	// 		async: false,
+	// 		type: 'GET',
+	// 		url: "https://api.rss2json.com/v1/api.json?rss_url=" + feedURL,
+	// 		dataType: 'jsonp',
+	// 		success: function(result) {
+	// 			draw(result)
+	// 		}
+	// 	});
+	// }
+
+	// var parse_data = function( data){
+	// 	console.log(items)
+	// 	var items = data.items;
+	// 	for (var i = 0; i < items.length; i++){
+	// 		var obj = items[i];
+	// 		nodes.push( Object.create({id: obj.title}));
+	// 	}
+
+	// 	links.push(Object.create({source:"Source",target:"Target",type:"link"}));
+	// 	console.log(links);
+	// 	console.log(nodes);
+	// }
+
+	// var chart = {
+	// 	links: [],
+	// 	nodes: [],
+
+	// 	svg: d3.create('svg'),
+	// }
+
+	// var draw = function( data ) {
+	// 	console.log(data);
+	// 	function dragstarted(event,d) {
+	// 		console.log("dragstarted")
+	// 	}
+	// 	function dragged(event,d) {}
+	// 	function dragended(event,d) {}
+
+
+
+	// 	return d3.drag()
+	// 	.on("start",dragstarted)
+	// 	.on("drag",dragged)
+	// 	.on("end",dragended);
+	// }
+	// window.onload = function () { 
+	// 	load_rss_json()
+	// }
+
+</script>
+
+<!-- test -->
+<script>
+	var links = [];
+	var nodes = [];
+	// var types = ['outlink','inlink'];
+	var types = ["licensing", "suit", "resolved"];
+	var data = [];
+	// <svg viewBox="-576,-300,1152,600" style="font: 12px sans-serif;">
+	var height = 600;
+	var width  = 1400;
+
+	// init links
+	// for (var i = 3; i >= 1; i--) {
+	// 	var obj = {
+	// 		source: 'Source'+i,target: 'target'+i,type:'licensing'
+	// 	}
+	// 	links.push(obj);
+	// }
+
+
+
+
+
+	// links.push({ source: "Microsoft" , target: "Mi", type: "licensing"});
+	// links.push({ source: "Microsoft" , target: "Huawei", type: "licensing"});
+	// links.push({ source: "Microsoft" , target: "oracle", type: "licensing"});
+	// links.push({ source: "大米" , target: "oracle", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft", type: "licensing"});
+
+	// links.push({ source: "大米" , target: "Microsoft1", type: "suit"});
+	// links.push({ source: "大米" , target: "Microsoft2", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft3", type: "suit"});
+	// links.push({ source: "大米" , target: "Microsoft4", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft5", type: "suit"});
+	// links.push({ source: "大米" , target: "Microsoft6", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft7", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft8", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft9", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft0", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft11", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft22", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft33", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft44", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft55", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft66", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft77", type: "licensing"});
+	// links.push({ source: "大米" , target: "Microsoft88", type: "licensing"});
+
+	// nodes.push({id: "Microsoft"})
+	// nodes.push({id: "Mi"})
+	// nodes.push({id: "Huawei"})
+	// nodes.push({id: "oracle"})
+	// nodes.push({id: "大米"})
+	// nodes.push({id: "Microsoft1"})
+	// nodes.push({id: "Microsoft2"})
+	// nodes.push({id: "Microsoft3"})
+	// nodes.push({id: "Microsoft4"})
+	// nodes.push({id: "Microsoft5"})
+	// nodes.push({id: "Microsoft6"})
+	// nodes.push({id: "Microsoft7"})
+	// nodes.push({id: "Microsoft8"})
+	// nodes.push({id: "Microsoft9"})
+	// nodes.push({id: "Microsoft0"})
+	// nodes.push({id: "Microsoft11"})
+	// nodes.push({id: "Microsoft22"})
+	// nodes.push({id: "Microsoft33"})
+	// nodes.push({id: "Microsoft44"})
+	// nodes.push({id: "Microsoft55"})
+	// nodes.push({id: "Microsoft66"})
+	// nodes.push({id: "Microsoft77"})
+	// nodes.push({id: "Microsoft88"})
+
+	// for (var i = 3; i >= 1; i--) {
+	// 	var obj = {
+	// 		id: 'Source'+i
+	// 	}
+	// 	nodes.push(obj);
+	// }
+
+	// for (var i = 3; i >= 1; i--) {
+	// 	var obj = {
+	// 		id: 'target'+i
+	// 	}
+	// 	nodes.push(obj);
+	// }
+
+	var __chart  =function() {
+
+		console.log('__chart')
+
+	data = {
+		nodes: nodes,
+		links: links
+	};
+
+	// 
+	var drag = function(simulation) {
+
+		var dragstarted = function(event,d){
+			console.log("dragstarted")
+			if(!event.active){
+				simulation.alphaTarget(0.3).restart();
+			}
+			d.fx = d.x;
+			d.fy = d.y;
+		}
+
+		var dragged = function(event,d){
+			console.log("dragged")
+ 			d.fx = event.x;
+    		d.fy = event.y;
+		}
+
+		var dragended = function(event,d){
+			console.log("dragended")
+			if (!event.active) {simulation.alphaTarget(0);}
+    		d.fx = null;
+    		d.fy = null;
+		}
+
+		return d3.drag()
+			.on('start',dragstarted)
+			.on('drag',dragged)
+			.on('end',dragended);
+	}
+
+	var linkArc = function(d) {
+		var r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
+		// console.log(d.source)
+		return  `
+		    M${d.source.x},${d.source.y}
+		    A${r},${r} 0 0,1 ${d.target.x},${d.target.y}
+		  `;
+	}
+	var color = d3.scaleOrdinal(types, d3.schemeCategory10);
+
+	// var chart = {
+		links= data.links.map(d => Object.create(d)),
+		nodes= data.nodes.map(d => Object.create(d)),
+
+		simulation= d3.forceSimulation(nodes)
+			.force('link', d3.forceLink(links).id(d=> d.id))
+			.force('charge', d3.forceManyBody().strength(-350))
+			// .force("center",  d3.forceCenter(width/2, height/2))
+			.force('x', d3.forceX())
+			.force('y', d3.forceX())
+			.restart();
+		
+
+		// <svg viewBox="-576,-300,1152,600" style="font: 12px sans-serif;">
+		svg= d3.create('svg')
+			// .attr('viewBox', [-576,-300,1152,600])
+			      .attr("viewBox", [-width / 2, -height / 2, width, height])
+
+			.style('font', '9px sans-serif')
+			// .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+
+			// chart.
+	// svg.append('defs').selectAll('marker')
+	// 	.data(types)
+	// 	.join('marker')
+	// 		.attr('id', d => "aaaa"+d)
+	// 		.attr('viewBox', '0 -5 10 10')//0 -5 10 10
+	// 		.attr('refX', 15)//15
+	// 		.attr('refY', -0.5)
+	// 		.attr('markerWidth',3)
+	// 		.attr('markerHeight',3)
+	// 		.attr('orient','auto')
+	// 	.append('path')
+	// 		.attr('fill', color)
+	// 		.attr('d', 'M0,-5L10,0L0,5');
+	svg.append("defs").selectAll("marker")
+    .data(types)
+    .join("marker")
+      .attr("id", d => `arrow-${d}`)
+      .attr("viewBox", "0 -5 10 10")
+      .attr("refX", 15)
+      .attr("refY", -0.5)
+      .attr("markerWidth", 6)
+      .attr("markerHeight", 6)
+      .attr("orient", "auto")
+    .append("path")
+      .attr("fill", color)
+      .attr("d", "M0,-5L10,0L0,5");
+
+		// link = svg.append('g')
+		// 	.attr('fill', 'none')
+		// 	.attr('stroke-width', 1.5)
+		// 	.selectAll('path')
+		// 	.data(links)
+		// 	.join('path')
+		// 	.attr('stroke', d => color(d.type))
+			// .attr('marker-end' d => `url(d.type)`)),
+	link = svg.append("g")
+      .attr("fill", "none")
+      .attr("stroke-width", 0.8)//1.5
+    .selectAll("path")
+    .data(links)
+    .join("path")
+      .attr("stroke", d => color(d.type))
+      .attr("marker-end", d => `url(${new URL(`#arrow-${d.type}`, location)})`);
+
+		// node= svg.append('g')
+		// 	.attr('fill', 'currentColor')
+		// 	.attr('stroke-linecap', 'round')
+		// 	.attr('stroke-linejoin', 'round')
+		// 	.selectAll('g')
+		// 	.data(nodes)
+		// 	.join('g')
+		// 	.call(drag(simulation))
+
+		node = svg.append("g")
+      .attr("fill", "currentColor")
+      .attr("stroke-linecap", "round")
+      .attr("stroke-linejoin", "round")
+    .selectAll("g")
+    .data(nodes)
+    .join("g")
+      .call(drag(simulation));
+
+		node.append("circle")
+	      .attr("stroke", "white")
+	      .attr("stroke-width", 1.5)
+	      .attr("r", 4); // 4
+
+      	node.append("text")
+	      .attr("x", 8)//8
+	      .attr("y", "0.31em")//0.31em
+	      .text(d => d.id)
+	    .clone(true).lower()
+	      .attr("fill", "none")
+	      .attr("stroke", "white")
+	      .attr("stroke-width", 3);//3
+
+  	simulation.on("tick", () => {
+    	link.attr("d", linkArc);
+    	node.attr("transform", d => `translate(${d.x},${d.y})`);
+  	});
+
+  // invalidation.then(() => simulation.stop());
+
+  
+	// }
+
+	
+
+	svg.node();
+  	document.getElementById('svg').append(svg.node());
+  	}
+
+  	var load_rss_json = function() {
+		var json;
+		// rss ulr
+		// test: https://xiashuangxi.github.io/bookphrase/feed.xml
+		// examples:https://observablehq.com/@d3/mobile-patent-suits
+		var feedURL = "https://xiashuangxi.github.io/pkb/feed.xml";
+		$.ajax({
+			async: false,
+			type: 'GET',
+			url: "https://api.rss2json.com/v1/api.json?rss_url=" + feedURL,
+			dataType: 'jsonp',
+			success: function(result) {
+				// draw(result)
+				console.log(result)
+
+				if( result ){
+
+					for (var i = result.items.length - 1; i >= 0; i--) {
+						var obj = result.items[i];
+						console.log(obj.content)
+						var re = /^"(\/http\/.+)"$/
+						console.log(obj.content.match(re))		
+
+						nodes.push({id: obj.title});
+						
+					}
+				}
+
+
+				__chart()
+			}
+		});
+	}
+	load_rss_json()
+</script>
+
+
+            </div>
+            <div class="footer-container">
+    <div class="footer-inner">
+        <div class="content">
+            <div>
+                &copy; 2022年 Xia Shuangxi 版权所有，保留所有权利。
+                <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">
+                    <img alt="知识共享许可协议" style="border-width:0" src="/worknotes/assets/images/license-80x15.png">
+                </a>
+            </div>
+            <div>如果有任何意见或建议，请发送电子邮件 <a href="mailto:xiashuangxi@hotmail.com">xiashuangxi@hotmail.com</a> 给网站管理员。</div>
+            <!-- 剑桥翻译 iframe -->
+            <div>
+                <form action='https://dictionary.cambridge.org/zhs/%E6%90%9C%E7%B4%A2/%E8%8B%B1%E8%AF%AD/direct/' method='get' target='_blank'> <input type='hidden' name='utm_source' value='widget_searchbox_source'/> <input type='hidden' name='utm_medium' value='widget_searchbox'/> <input type='hidden' name='utm_campaign' value='widget_tracking'/> <table style='font-family:Arial,Helvetica,sans-serif;font-size:10px;background:#1D2A57;border-collapse:collapse;border-spacing:0;width:150px;background-image:linear-gradient(to right,#0f193d,#2c2f62,#1a2753)'> <caption style='display:none;'>CUP free search box</caption> <tbody> <tr> <td colspan='2' style='padding:0;background:none;border:none;'> <a href='https://dictionary.cambridge.org/zhs/' style='display:block;background:transparent url(https://dictionary.cambridge.org/zhs/external/images/freesearch/sbl.png?version=5.0.225) no-repeat 5px 6px;height:32px;'></a> </td> </tr> <tr> <td style='width:130px;background:none;border:none;padding:0;font-size:10px;border-collapse:collapse;border-spacing:0;'> <input style='margin:4px;padding:0 0 0 3px;display:block;font-family:Arial,Helvetica,sans-serif;font-size:10px;border:1px solid #ddd;border-radius:20px;box-shadow:inset 1px 1px 2px 0 rgba(0,0,0,0.1);color:#444;' name='q' placeholder='Search English' type='search' title='search' dir='auto' role='textbox' autocomplete='off' aria-controls='search' aria-multiline='false' aria-expanded='false' aria-label='Search' aria-required='true' aria-invalid='false' /> </td> <td style='width:20px;background:none;border:none;padding:0 4px 0 0;font-size:10px;border-collapse:collapse;border-spacing:0;'> <button style='width:15px;height:15px;vertical-align:top;display:inline-block;border:none;border-radius:50%;text-align:center;text-transform:none;padding:0;background:#FEC400;cursor:pointer;overflow:hidden;' title='Search' type='submit'> <img src='https://dictionary.cambridge.org/zhs/external/images/freesearch/search.png?version=5.0.225' style='vertical-align:-1px;border:none;height:auto;margin:0;padding:0;text-align:center;'/> </button> </td> </tr> </tbody> </table> </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+        </div>
+    </body>
+    <!-- <script src="/scripts/lib/angular.min.js"></script> -->
+<script src="
+
+/assets/scripts/lib/jquery.min.js"></script>
+<!-- emoji -->
+<script src="
+
+/assets/scripts/lib/jQueryEmoji.min.js"></script>
+<script src="
+
+/assets/scripts/lib/jQueryEmoji_un.js"></script>
+<script src="
+
+/assets/scripts/lib/highlight.min.js"></script>
+<!-- <script src="
+
+/assets/scripts/lib/runtime.js"></script> -->
+<script src="
+
+/assets/scripts/lib/dblclick.js"></script>
+
+<script>
+	// https://dictionary.cambridge.org/search/direct/p?hello
+	// english-chinese-simplified
+	// https://dictionary.cambridge.org/spellcheck/english-chinese-simplified/?q=Shuangxi
+	setupDoubleClick( 'https://dictionary.cambridge.org/', 'british', false, null, 5, 'popup' )
+// $(function(){
+// 	$('p').Emoji({
+// 		path:  '/images/img/emojione/',
+// 		class: 'emoji',
+// 		ext:   'png'
+// 	});
+// });
+
+// document.onload = function() {
+	hljs.initHighlightingOnLoad();
+// }
+</script>
+</html>
+
+1
