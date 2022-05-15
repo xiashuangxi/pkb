@@ -344,7 +344,6 @@ layout: default
 					for (var i = result.items.length - 1; i >= 0; i--) {
 						var obj = result.items[i];
 						console.log(obj.content)
-						console.log("{{namespace}}")
 						var re = /^"(\/http\/.+)"$/
 						console.log(obj.content.match(re))		
 
