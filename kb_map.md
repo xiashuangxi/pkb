@@ -8,6 +8,7 @@ layout: default
 <!-- <svg width="1500" height="600"></svg> -->
 <!-- feed -->
 <!-- https://xiashuangxi.github.io/pkb/feed.xml -->
+{% include setup.html %}
 <script src="{{namespace}}/assets/scripts/lib/jquery.min.js"></script>
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
 <script>
