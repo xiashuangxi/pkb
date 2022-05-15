@@ -3,13 +3,13 @@ highlighter: rouge
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-plugins:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-seo-tag
-  - jekyll-github-metadata
+# plugins:
+#   - jekyll-feed
+#   - jekyll-sitemap
+#   - jekyll-seo-tag
+#   - jekyll-github-metadata
 
 title: Xia Shuangxi 的个人知识库
 description: 知识库
 author: Xia Shuangxi
-permalink: /blog/posts/:year/:month/:day/:title:output_ext
+# permalink: /blog/posts/:year/:month/:day/:title:output_ext
