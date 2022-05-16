@@ -356,12 +356,12 @@ layout: default
 					console.log(m)
 
 					nodes.push({id: title});
-					nodes.push({id: m[0]});
-					links.push({
-						source: title,
-						target: m[0],
-						type: 'licensing'
-					});
+					// nodes.push({id: m[0]});
+					// links.push({
+					// 	source: title,
+					// 	target: m[0],
+					// 	type: 'licensing'
+					// });
   				}
   				__chart()
 
