@@ -1,12 +1,9 @@
-
-{% include setup.html %}
-
 ---
 layout: default
 ---
 
 ## 知识关系图
-
+{% include setup.html %}
 <input type="text" value="{{namespace}}"/>
 
 <div id="svg" style="border: 1px solid;overflow: auto"></div>
@@ -334,7 +331,8 @@ layout: default
 		// rss ulr
 		// test: https://xiashuangxi.github.io/bookphrase/feed.xml
 		// examples:https://observablehq.com/@d3/mobile-patent-suits
-		var feedURL = "https://xiashuangxi.github.io/pkb/feed.xml?roundnumber="+Data.new();
+		// https://api.rss2json.com/v1/api.json?rss_url=https://xiashuangxi.github.io/pkb/feed.xml
+		var feedURL = "https://xiashuangxi.github.io/pkb/feed.xml?roundnumber="+Date.now();
 		$.ajax({
 			async: false,
 			type: 'GET',
