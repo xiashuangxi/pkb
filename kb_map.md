@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# 知识关系图
+## 知识关系图
 
 <div id="svg" style="border: 1px solid;overflow: auto"></div>
 <!-- <svg width="1500" height="600"></svg> -->
