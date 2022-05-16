@@ -1,3 +1,6 @@
+
+{% include setup.html %}
+
 ---
 layout: default
 ---
@@ -11,7 +14,6 @@ layout: default
 <!-- feed -->
 <!-- https://xiashuangxi.github.io/pkb/feed.xml -->
 
-{% include setup.html %}
 <script src="{{namespace}}/assets/scripts/lib/jquery.min.js"></script>
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
 <script>
@@ -332,7 +334,7 @@ layout: default
 		// rss ulr
 		// test: https://xiashuangxi.github.io/bookphrase/feed.xml
 		// examples:https://observablehq.com/@d3/mobile-patent-suits
-		var feedURL = "https://xiashuangxi.github.io/pkb/feed.xml";
+		var feedURL = "https://xiashuangxi.github.io/pkb/feed.xml?roundnumber="+Data.new();
 		$.ajax({
 			async: false,
 			type: 'GET',
