@@ -3,8 +3,12 @@ layout: default
 ---
 
 ## 知识关系图
+
+
 {% include setup.html %}
-<input type="text" value="{{namespace}}"/>
+
+
+<textarea> {{namespace}} </textarea>
 
 <div id="svg" style="border: 1px solid;overflow: auto"></div>
 <!-- <svg width="1500" height="600"></svg> -->
@@ -327,38 +331,138 @@ layout: default
   	}
 
   	var load_rss_json = function() {
-		var json;
-		// rss ulr
-		// test: https://xiashuangxi.github.io/bookphrase/feed.xml
-		// examples:https://observablehq.com/@d3/mobile-patent-suits
-		// https://api.rss2json.com/v1/api.json?rss_url=https://xiashuangxi.github.io/pkb/feed.xml
-		var feedURL = "https://xiashuangxi.github.io/pkb/feed.xml?roundnumber="+Date.now();
-		$.ajax({
-			async: false,
-			type: 'GET',
-			url: "https://api.rss2json.com/v1/api.json?rss_url=" + feedURL,
-			dataType: 'jsonp',
-			success: function(result) {
-				// draw(result)
-				console.log(result)
 
-				if( result ){
+  		$.ajax({
+  			url: "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now(),
+  			success: function(result){
+  				
+  				console.log(result)
+  				var entry  = result.getElementsByTagName("entry")
 
-					for (var i = result.items.length - 1; i >= 0; i--) {
-						var obj = result.items[i];
-						console.log(obj.content)
-						var re = /^"(\/http\/.+)"$/
-						console.log(obj.content.match(re))		
+  				// var domParser = new DOMParser();
+  				// var xmlDocument = domParser.parseFromString(entry[0], "text/xml");//text/xml
 
-						nodes.push({id: obj.title});
+  				console.log(entry[0])
+  				// console.log(xmlDocument)
+  				console.log(entry[0].querySelector('content').innerHTML)
+
+  				for (var i = entry.length - 1; i >= 0; i--) {
+  					var e = entry[i];
+  					var title = e.querySelector("title").innerHTML
+  					var content = e.querySelector("content").innerHTML
+  					
+  					var re = /"(\/pkb\/.+)"/
+  					var m = content.match(re);
+					console.log(m)
+
+					nodes.push({id: title});
+					nodes.push({id: m[0]});
+					links.push({
+						source: title,
+						target: m[0],
+						type: 'licensing'
+					});
+  				}
+  				__chart()
+
+  			}
+  		})
+
+// 		const RSS_URL = `https://xiashuangxi.github.io/bookphrase/feed.xml`;
+
+// 		$.ajax(RSS_URL, {
+// 		  accepts: {
+// 		    xml: "application/rss+xml"
+// 		  },
+
+// 		  dataType: "xml",
+
+// 		  success: function(data) {
+// 		  	console.log(data)
+// 		    $(data)
+// 		      .find("entry")
+// 		      .each(function() {
+// 		        const el = $(this);
+// console.log(el)
+
+// 		        // document.body.insertAdjacentHTML("beforeend", template);
+// 		      });
+// 		  }
+// 		});
+
+
+
+		// var json;
+		// // rss ulr
+		// // test: https://xiashuangxi.github.io/bookphrase/feed.xml
+		// // examples:https://observablehq.com/@d3/mobile-patent-suits
+		// // https://api.rss2json.com/v1/api.json?rss_url=https://xiashuangxi.github.io/pkb/feed.xml
+		// var feedURL = "https://xiashuangxi.github.io/pkb/feed.xml";
+		// $.ajax({
+		// 	async: false,
+		// 	type: 'GET',
+		// 	// accepts: {
+		//  //    xml: "application/rss+xml"
+		//  //  },
+		// 	url: feedURL,
+		// 	// dataType: 'jsonp',
+		// 	success: function(result) {
+		// 		// draw(result)
+		// 		console.log(result)
+
+		// 		var domParser = new DOMParser();
+		// 		// ?
+		// 		// text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9
+		// 		// var xmlDocument = domParser.parseFromString(result, "text/html");
+		// 		// console.log(xmlDocument)
+		// 		// var entry = xmlDocument.getElementsByTagName("entry")
+
+		// 		// console.log(entry)
+
+
+		// 		// if( result ){
+
+		// 		// 	for (var i = result.items.length - 1; i >= 0; i--) {
+		// 		// 		var obj = result.items[i];
+		// 		// 		console.log(obj.content)
+		// 		// 		var re = /^"(\/http\/.+)"$/
+		// 		// 		console.log(obj.content.match(re))		
+
+		// 		// 		nodes.push({id: obj.title});
 						
-					}
-				}
+		// 		// 	}
+		// 		// }
 
 
-				__chart()
-			}
-		});
+		// 		__chart()
+		// 	}
+		// });
+		// $.ajax({
+		// 	async: false,
+		// 	type: 'GET',
+		// 	url: "https://api.rss2json.com/v1/api.json?rss_url=" + feedURL,
+		// 	dataType: 'jsonp',
+		// 	success: function(result) {
+		// 		// draw(result)
+		// 		console.log(result)
+
+		// 		if( result ){
+
+		// 			for (var i = result.items.length - 1; i >= 0; i--) {
+		// 				var obj = result.items[i];
+		// 				console.log(obj.content)
+		// 				var re = /^"(\/http\/.+)"$/
+		// 				console.log(obj.content.match(re))		
+
+		// 				nodes.push({id: obj.title});
+						
+		// 			}
+		// 		}
+
+
+		// 		__chart()
+		// 	}
+		// });
 	}
 	load_rss_json()
 </script>
