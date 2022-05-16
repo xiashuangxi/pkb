@@ -8,7 +8,7 @@ layout: default
 {% include setup.html %}
 
 
-<textarea> {{namespace}} </textarea>
+<textarea id="namespace" style='display:none'> {{namespace}} </textarea>
 
 <div id="svg" style="border: 1px solid;overflow: auto"></div>
 <!-- <svg width="1500" height="600"></svg> -->
@@ -332,36 +332,57 @@ layout: default
 
   	var load_rss_json = function() {
 
+  		var namespace = document.getElementById('namespace').value.trim();
+  		var url = "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
+  		if(name.length == 0){
+  			url = "/feed.xml?rn="+Date.now();
+  		}
+
   		$.ajax({
-  			url: "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now(),
+  			url: url,
   			success: function(result){
   				
-  				console.log(result)
+  				// console.log(result)
   				var entry  = result.getElementsByTagName("entry")
 
   				// var domParser = new DOMParser();
   				// var xmlDocument = domParser.parseFromString(entry[0], "text/xml");//text/xml
 
-  				console.log(entry[0])
-  				// console.log(xmlDocument)
-  				console.log(entry[0].querySelector('content').innerHTML)
+  				// console.log(entry[0])
+  				// // console.log(xmlDocument)
+  				// console.log(entry[0].querySelector('content').innerHTML)
 
   				for (var i = entry.length - 1; i >= 0; i--) {
   					var e = entry[i];
   					var title = e.querySelector("title").innerHTML
   					var content = e.querySelector("content").innerHTML
+  					var url = e.querySelector('link').getAttribute('href');
   					
-  					var re = /"(\/pkb\/.+)"/
-  					var m = content.match(re);
-					console.log(m)
+  					// var re = /"(\/pkb\/.+)"/
+  					// console.log("title: "+title + " Content:" +content)
+  					var m = content.match(/"(\/pkb\/.+)"/);
+  					// console.log(m)
+  					if(m) {
+  						var ref = m[1];
+  						// console.log(ref)
+  						var m1 = ref.match(/(?<=Title:).+/)
+  						if(m1){
+  							// console.log(m1[0])
+							for (var i = nodes.length - 1; i >= 0; i--) {
+								var n = nodes[i];
+								if(m1[0] == n.id) {
+									links.push({
+										source: title,
+										target: m1[0],
+										type: 'licensing'
+									})
+								}
+							}
+  						}
+  					}
 
-					nodes.push({id: title});
-					// nodes.push({id: m[0]});
-					// links.push({
-					// 	source: title,
-					// 	target: m[0],
-					// 	type: 'licensing'
-					// });
+					nodes.push({id: title,link: url});
+
   				}
   				__chart()
 
