@@ -4,10 +4,13 @@ layout: default
 
 ## 知识关系图
 
+<input type="text" value="{{namespace}}"/>
+
 <div id="svg" style="border: 1px solid;overflow: auto"></div>
 <!-- <svg width="1500" height="600"></svg> -->
 <!-- feed -->
 <!-- https://xiashuangxi.github.io/pkb/feed.xml -->
+
 {% include setup.html %}
 <script src="{{namespace}}/assets/scripts/lib/jquery.min.js"></script>
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
