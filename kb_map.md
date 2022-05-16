@@ -334,7 +334,7 @@ layout: default
 
   		var namespace = document.getElementById('namespace').value.trim();
   		var url = "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
-  		if(name.length == 0){
+  		if(namespace.length == 0){
   			url = "/feed.xml?rn="+Date.now();
   		}
 
