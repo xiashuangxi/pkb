@@ -17,11 +17,11 @@ layout: default
 
 <script src="{{namespace}}/assets/scripts/lib/jquery.min.js"></script>
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
-<script>
 
-	// 	// rss ulr
+
+<!-- 	// 	// rss ulr
 	// 	// test: https://xiashuangxi.github.io/bookphrase/feed.xml
-	// 	// examples:https://observablehq.com/@d3/mobile-patent-suits
+	// 	// examples:https://observablehq.com/@d3/mobile-patent-suits -->
 	
 
 <!-- test -->
