@@ -7,10 +7,32 @@ layout: default
 
 {% include setup.html %}
 
-
+<style>
+	.chart button {
+		padding: 2px 6px;
+   	border: 1px solid black;
+    text-align: center;
+    cursor: pointer;
+    user-select: none;
+    margin: 1px;
+    width: 22px;
+    height: 22px;
+    box-shadow: 1px 1px 1px 0 rgb(0 0 0 / 30%);
+	}
+	.chart button:hover {
+		background-color: black;
+		color: white;
+	}
+</style>
 <textarea id="namespace" style='display:none'> {{namespace}} </textarea>
 
-<div id="svg" style="border: 1px solid;overflow: auto"></div>
+<div class="chart" id="svg" style="border: 1px solid;overflow: auto;">
+	<div id="chart_button" style="display: none;position: absolute;">
+		<button>+</button>
+		<button>-</button>
+		<button>·</button>
+	</div>
+</div>
 <!-- <svg width="1500" height="600"></svg> -->
 <!-- feed -->
 <!-- https://xiashuangxi.github.io/pkb/feed.xml -->
@@ -87,7 +109,16 @@ layout: default
 			// .attr('viewBox', [-576,-300,1152,600])
 			.attr("viewBox", [-width / 2, -height / 2, width, height])
 			.style('font', '12px sans-serif')
+			.style("cursor", "pointer");
 			// .attr("style", "max-width: 100%; height: auto; height: intrinsic;");
+			// .call(d3.zoom().on('zoom', function() {
+			// 	svg.attr('transform', d3.event.transform)
+			// }))
+ // const g = svg.append("g");
+
+
+
+
 
 		svg.append("defs").selectAll("marker")
   	  .data(types)
@@ -140,8 +171,46 @@ layout: default
     	node.attr("transform", d => `translate(${d.x},${d.y})`);
   	});
   	// invalidation.then(() => simulation.stop());
-		svg.node();
-  	document.getElementById('svg').append(svg.node());
+		// svg.call(zoom)
+  //   .call(zoom.transform, d3.zoomIdentity).node();
+
+  	// const zoom = d3.zoom().on("zoom", e => {
+   //  	node.attr("transform", (transform = e.transform));
+   //    node.style("stroke-width", 3 / Math.sqrt(transform.k));
+
+	  //   console.log('x')
+	  // });
+
+  	// document.getElementById('svg').append(
+  	// 	svg.call(zoom)
+   //  .call(zoom.transform, d3.zoomIdentity)
+   //  .node()
+  	// );
+
+// k = height / width
+//   	x = d3.scaleLinear()
+//     .domain([-4.5, 4.5])
+//     .range([0, width])
+//     y = d3.scaleLinear()
+//     .domain([-4.5 * k, 4.5 * k])
+//     .range([height, 0])
+
+//   	const zoom = d3.zoom()
+//   		.scaleExtent([0.5],32)
+//   		.on('zoom', zoomed);
+		
+// 		svg.call(zoom)
+//   			.call(zoom.transform, d3.zoomIdentity);
+
+  	function zoomed({transform}) {
+  		const zx = transform.rescaleX(x).interpolate(d3.interpolateRound);
+    	const zy = transform.rescaleY(y).interpolate(d3.interpolateRound);
+    	node.attr("transform", transform).attr("stroke-width", 5 / transform.k);
+  	}
+
+  	document.getElementById('svg').append(
+  		svg.node()
+  	);
 	}
   var load_rss_json = function() {
   	var namespace = document.getElementById('namespace').value.trim();
@@ -182,6 +251,9 @@ layout: default
   	})
 	}
 
-	window.onload = function() {load_rss_json()}
+	window.onload = function() {
+		load_rss_json()
+		document.getElementById('chart_button').style.display = 'block';
+	}
 	
 </script>
