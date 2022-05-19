@@ -33,3 +33,4 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 
 ## 其它
 - [中国科学院沈阳自动化研究所图书馆](http://opac.sia.cn/)
+- [中文马克思主义文库](https://www.marxists.org/chinese/index.html)
