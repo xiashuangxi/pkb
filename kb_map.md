@@ -53,13 +53,14 @@ layout: default
 
 		simulation = d3.forceSimulation()
 		.force('link', d3.forceLink().id( function(d) { return d.id }))
-		.force('charge', d3.forceManyBody())
+		.force('charge', d3.forceManyBody().strength(-500))
 		.force('center', d3.forceCenter(width / 2, height / 2));
 	}
 
 	function chart() {
-		  var link = svg.append("g")
+		  	var link = svg.append("g")
 		      .attr("class", "links")
+		      // .attr("stroke-width",3.5)
 		    .selectAll("line")
 		    .data(links)
 		    .enter().append("line")
