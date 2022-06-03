@@ -109,6 +109,10 @@ a:hover  {
     /* padding: 2px 0px; */
 }
 
+.nav li:last-child{
+    border-bottom: none;
+}
+
 .nav ul a{
     margin: 2px 0px;
     display: flex;
@@ -162,8 +166,10 @@ a:hover  {
     padding: 8px 6px;
     color: black;
     text-decoration: none;
-    line-height: 1rem;
+    /*line-height: 1rem;*/
     margin: 0px;
+
+    border-bottom: none;
 }
 .nav .item .active,
 .nav .item a:hover {
@@ -409,6 +415,9 @@ code, kbd, pre, samp {
 .article-container-inner .article-content h6 {
     font-size: 13px;
     margin-bottom: 6px;
+    /*box-shadow: 1px 1px 1px 0 rgb(0 0 0 / 30%);*/
+    padding-left: 4px;
+    border-left: 4px solid #b98c6f;
 }
 
 .toc-container {
@@ -417,7 +426,7 @@ code, kbd, pre, samp {
 }
 
 /* .toc-container .toc-container-inner{
-
+    margin-top: 2px;
 } */
 
 .toc-container-inner ul{
