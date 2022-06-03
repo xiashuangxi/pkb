@@ -133,7 +133,9 @@ layout: default
 	function load_data(){
 		var namespace = document.getElementById('namespace').value.trim();
 	  	var url = "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
+	  	var linkreg=/"(\/pkb\/.+)"/;
 	  	if(namespace.length == 0){
+	  		linkreg = /"(\/.+)"/
 	  		url = "/feed.xml?rn="+Date.now();
 	  	}
 	  	$.ajax({
@@ -145,24 +147,29 @@ layout: default
 	  				var title = e.querySelector("title").innerHTML
 	  				var content = e.querySelector("content").innerHTML
 	  				var url = e.querySelector('link').getAttribute('href');
-	  				var m = content.match(/"(\/pkb\/.+)"/);
+	  				// var m = content.match(/"(\/pkb\/.+)"/);
+	  				var m = content.match(linkreg);
+	  				console.log(linkreg)
 	  				if(m) {
 	  					var ref = m[1];
 	  					var m1 = ref.match(/(?<=Title:).+/)
+	  					console.log(content)
+	  					console.log(ref)
 	  					if(m1){
-							for (var i = nodes.length - 1; i >= 0; i--) {
-								var n = nodes[i];
-								if(m1[0] == n.id) {
-									links.push({
-										source: title,
-										target: m1[0],
-										type: 'licensing'
-									})
+								for (var j = nodes.length - 1; j >= 0; j--) {
+									var n = nodes[j];
+									if(m1[0] == n.id) {
+										links.push({
+											source: title,
+											target: m1[0],
+											type: 'licensing'
+										})
+									}
 								}
-							}
 	  					}
 	  				}
-					nodes.push({id: title,link: url});
+	  				// console.log("title:"+title)
+						nodes.push({id: title,link: url});
 	  			}
 	  			chart()
 	  		}

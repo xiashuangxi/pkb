@@ -26,6 +26,32 @@
     var achor_link_forid = function(id){
         //document.querySelector("#"+id).scrollIntoView();
         document.querySelector("[goto_tag=\""+id+"\"]").scrollIntoView()
-        
     }
+
+    // 引用高亮
+    var current_use_ref_key = "";
+    var ref_highlight = function() {
+        var key = '#fn:';
+        var url = location.href;
+        var url_length = url.length;
+        var bg_color ="antiquewhite";
+
+        var ref_id = url.substring(url.indexOf(key)+1,url_length);
+        
+        if (current_use_ref_key.length > 0){
+            var obj = document.getElementById(current_use_ref_key);
+            if (obj.hasAttribute('style')){
+                obj.removeAttribute("style");    
+            }
+        } 
+        current_use_ref_key = ref_id;
+        document.getElementById(current_use_ref_key).style.backgroundColor = bg_color;
+    }
+
+    window.onpopstate = function() {
+        if (location.href.indexOf("#fn:") > 0 ){
+            ref_highlight();
+        }
+    }
+
 </script>
