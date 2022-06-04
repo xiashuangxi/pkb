@@ -17,14 +17,14 @@
 <title></title>
 <link rel="stylesheet" href="
 
-/assets/stylesheet/lib/highlight.min.css?v=21a47fada6e4a48ba356b15f257a785804f9079b" />
+/assets/stylesheet/lib/highlight.min.css?v=fd55a3ac23552d2bd0bfde841c5245d0be50a6a2" />
 <link rel="stylesheet" href="
 
-/assets/stylesheet/default/default.css?v=21a47fada6e4a48ba356b15f257a785804f9079b" />
+/assets/stylesheet/default/default.css?v=fd55a3ac23552d2bd0bfde841c5245d0be50a6a2" />
 
 <link rel="stylesheet" href="
 
-/assets/stylesheet/style.css?=21a47fada6e4a48ba356b15f257a785804f9079b" />
+/assets/stylesheet/style.css?=fd55a3ac23552d2bd0bfde841c5245d0be50a6a2" />
     </head>
     <body>
         <div class="wrapper">
@@ -240,82 +240,46 @@
     border-top-coarse-solid-line border-wide-t-3
     border-right-coarse-solid-line border-left-coarse-solid-line shadow">
         <div>
-            如果您觉得文章对您有用，并且有价值，可以通过以下途径进行捐助。💓<br />
+            如果您觉得文章对您有用、并且有价值，可以通过以下途径进行捐助。💓<br />
             
-            <a target="_block" title="PayPal" href="https://www.paypal.me/xiashuangxi"><img style="width: 48px; height: auto;" src="
 
-/assets/images/PayPal_48px.png" /></a>
-            
-            <a title="Alipay" href="javascript:pay('Alipay')"><img style="width: auto; height: 25px;" src="
+            <div class="panel none-padding none-top-margin">
+                <div class="flex">
+                
+                    <div class="item">
+                        <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3 border-right-coarse-solid-line border-left-coarse-solid-line shadow">
+                            <div class="title">PayPal</div>
+                            <div>
+                                您可以通过点击<a href="https://www.paypal.me/xiashuangxi">PayPal</a>的途径来进行捐助。
+                            </div>
+                        </div>
+                    </div>
 
-/assets/images/alipay.png" /></a>
-            
-            <a title="WeChat" href="javascript:pay('WeChat')"><img style="width: auto; height: 25px;" src="
+                    <div class="item">
+                        <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3 border-right-coarse-solid-line border-left-coarse-solid-line shadow">
+                            <div class="title">支付宝</div>
+                            <div>您可以通过支付宝扫描此<a href="
 
-/assets/images/wechat_pay_weixin.png" /></a>
+/assets/images/alipay_rqcode.jpg">付款码</a>进行捐助。
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="item">
+                        <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3 border-right-coarse-solid-line border-left-coarse-solid-line shadow">
+                            <div class="title">微信</div>
+                            <div>您可以通过支付宝扫描此<a href="
+
+/assets/images/wechat_rqcode.jpg">付款码</a>进行捐助。
+                            </div>
+                        </div>
+                    </div>
+                
+                </div>
+            </div>
         </div>
     </div>
-
-    <div class="donate-panel" id="donate-panel" hide="">
-        <!-- <img class="donate-image" src="
-
-/assets/images/alipay_rqcode.jpg">
-        <div class="donate-close-btn">关闭，我不想进行捐助😊</div> -->
-    </div>
 </div>
-
-<script>
-    var pay  = function(t) {
-        var panel = document.getElementById("donate-panel");
-        var baseurl = "
-
-/assets/images/";
-        var baseclosetext = "<a href='javascript:pay_show_toggle()'>关闭，我不想进行捐助😊</a>";
-
-        var img = document.createElement("img");
-        img.setAttribute("class", "donate-image");
-
-        var cls = document.createElement("div");
-        cls.setAttribute("class", "donate-close-btn");
-        cls.innerHTML = baseclosetext;
-
-        if (t == "Alipay"){
-            img.setAttribute("src",  baseurl+"alipay_rqcode.jpg");
-        } else if (t == "WeChat") {
-            img.setAttribute("src",  baseurl+"wechat_rqcode.jpg");
-        }
-
-        var childs = panel.childNodes;
-        for(var i=childs.length-1; i>=0; i--){    
-            panel.removeChild(childs.item(i));    
-        } 
-        panel.appendChild(img);
-        panel.appendChild(cls);
-        //pay_show_toggle()
-
-        panel.removeAttribute("hide");
-        panel.setAttribute("show","");
-        
-    }
-
-
-    var pay_show_toggle = function(){
-        var panel = document.getElementById("donate-panel");
-        var hide = panel.getAttribute("hide");
-        if (hide != null) {
-            console.log('y')
-            panel.removeAttribute("hide");
-            panel.setAttribute("show","");
-        } else {
-            console.log('N')
-            panel.removeAttribute("show");
-            panel.setAttribute("hide","");
-        }
-
-    }
-
-</script>
-
 
             </div>
             <div class="footer-container">
