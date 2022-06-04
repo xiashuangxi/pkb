@@ -16,6 +16,14 @@ toc: true
 
 # 第三部分
 
-# 总结 【{{namespace}}】
+
+
+
+# 总结 【{{namespace}}】 [{{namespace1}}]
+
+
+
+
+{% include setup.html %}
 
 [xxx]({{namespace}}/Title:参考文献信息列表)
