@@ -1,5 +1,5 @@
 {% assign title = include.title %}
-{% assign nodes = include.content | split: '<h' %}
+<!-- {% assign nodes = include.content | split: '<h' %} -->
 
 <div class="panel vertical border-bottom-coarse-solid-line border-wide-v-3 
 border-wide-lr-v-1 border-right-coarse-solid-line border-left-coarse-solid-line
@@ -13,8 +13,82 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;     margin-top: 2px;">
     </div>
 </div>
 <script>
-   
 
+    // // var node = {anchor_id: null, title: null, level: null, parent:"root", child: []};
+    // var tree = [];
+    // var id = 1;
+    // var parent_id=null;
+    // var tree_push = function (parent,  level, text) {
+
+    //     // {anchor_id: 1, title: 'world-3', level: '1', parent: null, child: Array(0)}
+    //     // {anchor_id: 2, title: 'world-3', level: '2', parent: 1, child: Array(0)}
+    //     // {anchor_id: 3, title: 'world-3', level: '3', parent: 2, child: Array(0)}
+    //     // {anchor_id: 4, title: 'world-3', level: '4', parent: 3, child: Array(0)}
+    //     // {anchor_id: 5, title: 'world-3', level: '5', parent: 4, child: Array(0)}
+    //     // {anchor_id: 6, title: 'world-3', level: '6', parent: 5, child: Array(0)}
+    //     // {anchor_id: 7, title: 'world-3', level: '1', parent: null, child: Array(0)}
+
+    //     var get_tree_node_parent = function(nodes=[],parent){
+    //         for (var i = nodes.length - 1; i >= 0; i--) {
+    //             var node = nodes[i];
+                
+    //             if(node.anchor_id == parent){
+    //                 return node;
+    //             } else {
+    //                 if (node.child.length >0 ){
+    //                     return get_tree_node_parent(node.child,parent);
+    //                 }
+    //             }
+    //         }
+    //     }
+
+    //     if( level ==  1){
+    //         tree.push({anchor_id: id, title: text, level: level, parent: null, child: [] });
+    //         parent_id = id;
+    //         id++;
+    //     } else {
+    //         var node = get_tree_node_parent(tree, parent_id);
+    //         console.log(node)
+    //         if(node){
+    //         node.child.push({anchor_id: id, title: text, level: level, parent:[], child: []})
+    //         parent_id = level-1;
+    //         id++;
+    //     }
+    //     }
+
+    //     // if (tree.length > 0 && parent != null) {
+    //     //     tree.map(function(n) {
+    //     //         var node = get_tree_node_parent(tree,parent);
+    //     //         if(node){
+    //     //             console.log('Push: index: '+ id+", Parent: "+parent+", Level: "+level);
+    //     //             node.child.push({anchor_id: id, title: text, level: level, parent: parent, child: [] })
+    //     //         }
+    //     //     });
+    //     // } else {
+    //     //     console.log('Push: index: '+ id+", Parent: "+parent+", Level: "+level);
+    //     //     tree.push({anchor_id: id, title: text, level: level, parent: null, child: [] });
+    //     //     id++;
+    //     // }
+    // }
+
+    // var gen_toc_tree = function() {
+    //     var content = document.getElementsByClassName("article-content")[0].innerHTML;
+    //     var h_arr = content.match(/<h\d.+>/g);
+    //     h_arr.map(function(h) {
+    //         var level = h.match(/(\<h)[\d]/g)[0].replace("<h","");
+    //         var h_id = h.match(/(?<=id=").*?(?=\">)/g)[0];
+    //         tree_push(parent_id, level, h_id);
+           
+    //     });
+
+    //     console.log(tree)
+    // }
+
+    // window.onload = function() {
+    //     gen_toc_tree();
+    // }
+
+    
     var node = function(data){
         this.data = data;
         this.parent = null;
@@ -45,24 +119,17 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;     margin-top: 2px;">
             // console.log(harr[j])
             var content =  harr[j].replace(/(id=").*?(?=\">)/g, "").replace("\"","");
             content = content.substring(0,4) + "id="+index_level + content.substring(4,content.length);
-
             var id_content = harr[j].match(/(?<=id=").*?(?=\">)/g);
             var obj = document.querySelector("#"+id_content[0])
             // console.log(obj)
             obj.setAttribute("goto_tag",index_level);
-
             index_level++;
-
-
             gen_toc_item(level, content )
         }
         // console.log(_root);
         // var ul = document.createElement("ul");
-        var ul = document.querySelector("#toc-root");
-        
+        var ul = document.querySelector("#toc-root");        
         gen_toc_html(ul,_root.__root,null);
-
-       
     }
 
     var gen_toc_html = function(panel,toc_tree, index) {
@@ -76,10 +143,10 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;     margin-top: 2px;">
                 var id_content = cl.data.match(/(?<=id=).*?(?=\>)/g);
                 li.setAttribute("id",content);
                 // console.log(cl.data)
-                
                 var link = document.createElement("a")
                 link.setAttribute("title", content);
                 link.setAttribute("href","javascript:achor_link_forid('"+id_content+"');");
+                // link.setAttribute("href","#sub:"+id_content);
                 // link.setAttribute("href","javascript:achor_link_forid('"+index_level+"');");
                 
                 if (index != null){
@@ -90,7 +157,6 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;     margin-top: 2px;">
                     link.innerText = (i+1)+"."+content;
                 }
                 
-
                 li.appendChild(link)
 
                 panel.appendChild(li)
@@ -106,6 +172,7 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;     margin-top: 2px;">
                 var cl = toc_tree.child[i];
                 var content = cl.data.match(/(?<=\<h\d.*?\>).*?(?=\<\/h\d\>)/g);
                 li.setAttribute("id",content);
+                console.log("ID:"+content)
                 li.innerText = content;
                 panel.appendChild(li)
         }
@@ -120,22 +187,17 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;     margin-top: 2px;">
             l_node.level = level;
             _root.__root.child.push(l_node)
             _parent = l_node;
-
         }else {
-
             var p = parent_for_level(_parent, level);
             var l_node = new node(item);
             l_node.parent = p;
             l_node.level = level;
             p.child.push(l_node)
-
             _parent = l_node;
         }
-
     }
 
     var parent_for_level = function(parent,level){
-        
         if (parent.level == level){
             return parent.parent;
         }
@@ -160,7 +222,6 @@ shadow" style="width: 20vw;float: right;margin-left: 6px;     margin-top: 2px;">
             // if ((level - parent.level) == 1){
             //     return parent;
             // } else { return }
-
             return parent;
         }
     }
