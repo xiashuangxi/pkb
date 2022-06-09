@@ -26,4 +26,12 @@ toc: true
 
 {% include setup.html %}
 
-[xxx]({{namespace}}/Title:参考文献信息列表)
+[站内]({{namespace}}/Title:参考文献信息列表)
+
+[站名](www.baidu.com)
+
+[站内]({{namespace}}/Title:参考文献信息列表1)
+[站内]({{namespace}}/Title:参考文献信息列表2)
+[站内]({{namespace}}/Title:参考文献信息列表3)
+[站内]({{namespace}}/Title:参考文献信息列表4)
+
