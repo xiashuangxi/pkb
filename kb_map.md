@@ -309,7 +309,7 @@ layout: default
 											source: title,
 											target: m1[0],
 											// 站内链接 resolved ， 站外链接 suit
-											type: 'suit' //"licensing", "suit", "resolved"
+											type: 'resolved' //"licensing", "suit", "resolved"
 										})
 									}
 								}
