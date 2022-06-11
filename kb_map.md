@@ -6,14 +6,59 @@ layout: default
 
 {% include setup.html %}
 <style>
+	.links line {
+	  stroke: blue;
+	  stroke-opacity: 1;
+	}
 
-.links line {
-  stroke: blue;
-  stroke-opacity: 1;
-}
+	input[type="checkbox"] {
+		-webkit-appearance:none;
+		height: 0.8em;
+		width: 0.8em;
+		cursor:pointer;
+		position:relative;
+		-webkit-transition: .10s;
+		/*border-radius:4em;*/
+		border: 1px solid black;
+		/*background-color:red;*/
+
+		margin: 0;
+	}
+
+	input[type="checkbox"]:checked {
+		background-color:black;
+	}
+
+	.out_l,
+	.in_l {
+		display: flex;
+    align-items: center;
+    margin-right: 6px;
+	}
+
+	.out_l::after,
+	.in_l::after  {
+		margin-left: 2px;
+		content: "\A";
+		display: inline-block;
+		width: 12px;
+		height: 3px;
+	}
+	.out_l::after  {
+		background-color: #ff7f0e;
+	}
+	.in_l::after  {
+		background-color: #2ca02c;
+	}
 </style>
 <textarea id="namespace" style='display:none'> {{namespace}} </textarea>
-<svg id="svg" style='width: 100%; height: 550px;'></svg>
+<div style="display: flex;flex-flow: row;align-items: center;">
+	<div class="in_l">内联</div>
+	<div class="out_l">外联</div>
+	<input type="checkbox" style="margin-right: 2px">显示外联
+</div>
+
+<svg id="svg" style='width: 100%; height: 550px; border: 1px solid;'></svg>
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
 <!-- <script src="{{namespace}}/assets/scripts/lib/d3.v4.min.js"></script> -->
 <!-- <script src="https://d3js.org/d3.v4.min.js"></script> -->
@@ -264,7 +309,7 @@ layout: default
 											source: title,
 											target: m1[0],
 											// 站内链接 resolved ， 站外链接 suit
-											type: 'resolved' //"licensing", "suit", "resolved"
+											type: 'suit' //"licensing", "suit", "resolved"
 										})
 									}
 								}
