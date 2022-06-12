@@ -55,7 +55,7 @@ layout: default
 <div style="display: flex;flex-flow: row;align-items: center;">
 	<div class="in_l">内联</div>
 	<div class="out_l">外联</div>
-	<input type="checkbox" style="margin-right: 2px">显示外联
+	<input type="checkbox" style="margin-right: 2px" checked>显示外联
 </div>
 
 <svg id="svg" style='width: 100%; height: 550px; border: 1px solid;'></svg>
@@ -279,9 +279,9 @@ layout: default
 	function load_data(){
 		var namespace = document.getElementById('namespace').value.trim();
 	  	var url = "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
-	  	var linkreg=/"(\/pkb\/.+)"/;
+	  	var linkreg=/"(\/pkb\/.+)"/g;
 	  	if(namespace.length == 0){
-	  		linkreg = /"(\/.+)"/
+	  		linkreg = /"(\/.+)"/g;
 	  		url = "/feed.xml?rn="+Date.now();
 	  	}
 	  	$.ajax({
@@ -293,29 +293,43 @@ layout: default
 	  				var title = e.querySelector("title").innerHTML
 	  				var content = e.querySelector("content").innerHTML
 	  				var url = e.querySelector('link').getAttribute('href');
+	  				console.log(result)
 	  				// var m = content.match(/"(\/pkb\/.+)"/);
-	  				var m = content.match(linkreg);
-	  				console.log(linkreg)
+	  				var m = content.match(linkreg); // in_link
+	  				var o_l = content.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g);
+
+	  				// 内联
 	  				if(m) {
-	  					var ref = m[1];
-	  					var m1 = ref.match(/(?<=Title:).+/)
-	  					console.log(content)
-	  					console.log(ref)
-	  					if(m1){
-								for (var j = nodes.length - 1; j >= 0; j--) {
-									var n = nodes[j];
-									if(m1[0] == n.id) {
-										links.push({
-											source: title,
-											target: m1[0],
-											// 站内链接 resolved ， 站外链接 suit
+	  					for (var i = m.length - 1; i >= 0; i--) {
+		  					var ref = m[i];
+		  					// console.log(ref)
+		  					var m1 = ref.match(/(?<=Title:).+/g)
+		  					if(m1){
+									for (var j = nodes.length - 1; j >= 0; j--) {
+										var n = nodes[j];
+										// console.log(m1)
+										var _t = m1[0].replace('"','') 
+										if(_t== n.id) {
+											links.push({ source: title, target: _t,//m1[0],// 站内链接 resolved ， 站外链接 suit 
 											type: 'resolved' //"licensing", "suit", "resolved"
-										})
+											})
+										}
 									}
-								}
-	  					}
-	  				}
-	  				// console.log("title:"+title)
+		  					}
+		  				}
+		  			}
+
+
+	  				if(o_l) {
+	  					for (var i = o_l.length - 1; i >= 0; i--) {
+
+		  					var ref = o_l[i];
+		  					nodes.push({id: ref,link: ref});
+		  						links.push({ source: title, target: ref, type: 'suit' });
+		  				}
+		  			}
+
+
 						nodes.push({id: title,link: url});
 	  			}
 	  			chart()
