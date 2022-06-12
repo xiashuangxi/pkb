@@ -16,9 +16,10 @@
       url: /sendmessage.html
       icon: email_14x14.gif
 
-- name: 个人图书馆
+- name: 个人图书馆(Notion页面)
   outitial: _blank
-  url: https://xiashuangxi.github.io/eb
+  url: https://xiashuangxi.notion.site/xiashuangxi/fea0f3963f1e447ba2bdb893d11e75be
+  # url: https://xiashuangxi.github.io/eb
 
 - name: 数据/文献查询
   url: /data_literature_query.html
