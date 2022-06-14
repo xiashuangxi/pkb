@@ -15,6 +15,13 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 - [DeepL 翻译器](https://www.deepl.com/)文献翻译平台。
 - [OA图书管](https://www.oalib.com/)
 - [Semantic Scholar](https://www.semanticscholar.org/)是具有人工智能功能的学术出版网络搜索引擎。
+<!-- 特殊化 -->
+- <div style="border: 1px solid #ffd7a5;display: inline-flex;border-radius: 2px;">
+	<div style="background-color: #ffd7a5;margin-right: 2px;">sci-hub</div>
+	<a href="https://sci-hub.se/">sci-hub.se</a>
+	<a href="https://sci-hub.st/">sci-hub.st</a>
+	<a href="https://sci-hub.ru/">sci-hub.ru</a>
+  </div>
 
 ### 司法类
 - [中国执行信息公开网](http://zxgk.court.gov.cn/)

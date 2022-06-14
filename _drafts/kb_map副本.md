@@ -53,12 +53,13 @@ layout: default
 <div style="display: flex;flex-flow: row;align-items: center;">
 	<div class="in_l">内联</div>
 	<div class="out_l">外联</div>
-	<input type="checkbox" style="margin-right: 2px" checked onchange="toggle_out()">显示外联
+	<input type="checkbox" style="margin-right: 2px" checked>显示外联
 </div>
 <svg id="svg" style='width: 100%; height: 550px; border: 1px solid;'></svg>
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
 <script>
 	var svg;
+	var color = [];
 	var simulation;
 	var height = document.getElementById('svg').clientHeight;
 	var width = document.getElementById('svg').clientWidth;
@@ -66,8 +67,8 @@ layout: default
 	var nodes = [];
 	var data = [];
 
-	var color = [];
 	var types = ["licensing", "suit", "resolved"];
+
 	var color = d3.scaleOrdinal(types, d3.schemeCategory10)
 
 	function linkArc(d) {
@@ -78,7 +79,8 @@ layout: default
 	  `;
 	}
 
-	var drag = function( simulation) {  
+	var drag = function( simulation) {
+  
 	  function dragstarted(event, d) {
 	    if (!event.active) simulation.alphaTarget(0.3).restart();
 	    d.fx = d.x;
@@ -103,8 +105,6 @@ layout: default
 	}
 
 	var chart = function() {
-		document.getElementById('svg').innerHTML="";
-		
 		simulation = d3.forceSimulation(nodes)
 			.force('link', d3.forceLink(links).id( function(d) { return d.id }) )
 			.force('charge', d3.forceManyBody().strength(-600))
@@ -165,6 +165,9 @@ layout: default
     	link.attr("d", linkArc);
     	node.attr("transform", d => `translate(${d.x},${d.y})`);
   	});
+
+  	// invalidation.then(() => simulation.stop());
+
   	return svg.node();
 	}
 
@@ -268,213 +271,70 @@ layout: default
 		
 // simulation.alphaTarget(0.3).restart()
 // 	});
-	// function load_data(){
-	// 	var namespace = document.getElementById('namespace').value.trim();
-	//   	var url = "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
-	//   	var linkreg=/"(\/pkb\/.+)"/g;
-	//   	if(namespace.length == 0){
-	//   		linkreg = /"(\/.+)"/g;
-	//   		url = "/feed.xml?rn="+Date.now();
-	//   	}
-	//   	$.ajax({
-	//   		url: url,
-	//   		success: function(result){
-	//   			var entry  = result.getElementsByTagName("entry")
-	//   			for (var i = entry.length - 1; i >= 0; i--) {
-	//   				var e = entry[i];
-	//   				var title = e.querySelector("title").innerHTML
-	//   				var content = e.querySelector("content").innerHTML
-	//   				var url = e.querySelector('link').getAttribute('href');
-	//   				console.log(result)
-	//   				// var m = content.match(/"(\/pkb\/.+)"/);
-	//   				var m = content.match(linkreg); // in_link
-	//   				var o_l = content.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g);
-
-	//   				// 内联
-	//   				if(m) {
-	//   					for (var i = m.length - 1; i >= 0; i--) {
-	// 	  					var ref = m[i];
-	// 	  					// console.log(ref)
-	// 	  					var m1 = ref.match(/(?<=Title:).+/g)
-	// 	  					if(m1){
-	// 								for (var j = nodes.length - 1; j >= 0; j--) {
-	// 									var n = nodes[j];
-	// 									// console.log(m1)
-	// 									var _t = m1[0].replace('"','') 
-	// 									if(_t== n.id) {
-	// 										links.push({ source: title, target: _t,//m1[0],// 站内链接 resolved ， 站外链接 suit 
-	// 										type: 'resolved' //"licensing", "suit", "resolved"
-	// 										})
-	// 									}
-	// 								}
-	// 	  					}
-	// 	  				}
-	// 	  			}
-
-
-	//   				if(o_l) {
-	//   					for (var i = o_l.length - 1; i >= 0; i--) {
-
-	// 	  					var ref = o_l[i];
-	// 	  					nodes.push({id: ref,link: ref});
-	// 	  						links.push({ source: title, target: ref, type: 'suit' });
-	// 	  				}
-	// 	  			}
-
-
-	// 					nodes.push({id: title,link: url});
-	//   			}
-	//   			console.log(nodes);
-	//   			console.log(links);
-
-	//   			chart()
-	//   		}
-	//   	})
-	// }
-
-	// var load_data_i = function() {
-	// 	nodes.push({id:"Node1_IN", t:"in"});
-	// 	nodes.push({id:"Node2_IN", t:"in"});
-	// 	nodes.push({id:"Node3_IN", t:"in"});
-
-	// 	nodes.push({id:"Node1_OUT", t:"out"});
-	// 	nodes.push({id:"Node2_OUT", t:"out"});
-
-	// 	links.push({source:"Node1_IN", target:"Node2_IN", type:"resolved", t:"in"});
-	// 	links.push({source:"Node2_IN", target:"Node3_IN", type:"resolved", t:"in"});
-	// 	links.push({source:"Node3_IN", target:"Node1_OUT", type:"suit", t:"out"});
-	// 	links.push({source:"Node3_IN", target:"Node2_OUT", type:"suit", t:"out"});
-
-	// 	chart()
-	// }
-
-	var ___out____=true
-	var toggle_out = function(){
-		if(___out____) {
-			remove_out_link();
-			chart();
-			___out____ = false;
-		} else{
-			nodes=[];
-			links=[];
-			load_data();
-			___out____ = true;
-		}
-		console.log(nodes)
-	  console.log(links)
-	}
-
-	function node_push(obj) {
-		// console.log("Push:"+obj.id)
-		if(nodes.length == 0){
-			nodes.push(obj)
-		}else{
-			var exis = false;
-			for (var i = nodes.length - 1; i >= 0; i--) {
-				var node = nodes[i];
-				if (obj.id == node.id) { exis = true; break;}
-			}
-			if(!exis){ nodes.push(obj)}
-		}
-
-	}
-
-	function escape2Html(str) { 
-	 var arrEntities={'lt':'<','gt':'>','nbsp':' ','amp':'&','quot':'"'}; 
-	 return str.replace(/&(lt|gt|nbsp|amp|quot);/ig,function(all,t){return arrEntities[t];}); 
-	} 
-
-	let ConvertStringToHTML = function (str) {
-   let parser = new DOMParser();
-   let doc = parser.parseFromString(str, 'text/html');
-   return doc.body;
-	}
-
-	remove = function(arr,inx) {
-		arr.filter(function (item){
-			return item !== inx
-		})
-	}
-
-	var remove_out_link = function() {
-		var _new_nodes = [];
-		for (var i = nodes.length - 1; i >= 0; i--) {
-			var n = nodes[i]
-			if( n.t == 'in'){
-				_new_nodes.push(n)
-			}
-		}
-		nodes = _new_nodes;
-
-		var _new_links = []
-		for (var i = links.length - 1; i >= 0; i--) {
-			var l = links[i]
-			if(l.t == 'in'){
-				_new_links.push(l)
-			}
-		}
-		links = _new_links;
-	}
-
-	var load_data = function() {
+	function load_data(){
 		var namespace = document.getElementById('namespace').value.trim();
-	  var url = namespace.length == 0 ? "/feed.xml?rn="+Date.now() : "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
-
-	  $.ajax({ url: url, success: function(data) {
-	  	var entry = data.getElementsByTagName('entry');
-	  	
-	  	for (var i = entry.length - 1; i >= 0; i--) {
-	  	
-	  		var __entry = entry[i];
-	  		var title = __entry.querySelector('title').innerHTML;
-	  		var url = __entry.querySelector('link').getAttribute('href');
-	  		var content = escape2Html(__entry.querySelector('content').innerHTML);
-	  		// all a:<(a+) (?!(?:href=(["|']+)([http:\/\/])*link\.com([\/])?(.*?)["|'])) *[^>]*>(.*?)[^>]>
-	  		var __a_tag = content.match(/<(a+) (?!(?:href=(["|']+)([http:\/\/])*link\.com([\/])?(.*?)["|'])) *[^>]*>(.*?)[^>]>/gm);
-	  		
-	  		for (var j = __a_tag.length - 1; j >= 0; j--) {
-
-	  			var atag = __a_tag[j]
-	  			// console.log(atag)
-	  			var in_tag = atag.match(/.*Title:.*/gm);
-	  			if(in_tag) {
-	  				var in_obj = ConvertStringToHTML(in_tag).firstChild;;
-	  				if(in_obj){
-	  					links.push({source: title, target:in_obj.innerHTML, type:"resolved", t:"in"});
-	  				}
-	  			}
-	  			var out_null_tag = atag.match(/.*href="#".*/gm);
-	  			if(out_null_tag) {
-	  				var out_null_obj = ConvertStringToHTML(out_null_tag).firstChild;
-	  				if(out_null_obj){
-	  					node_push({id: out_null_obj.innerHTML, link: out_null_obj.href, t: "out"})
-	  					links.push({source: title, target:out_null_obj.innerHTML, type:"suit", t:"out"});
-	  				}
-	  			}
-	  			// var out_tag = atag.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g);
-	  			var out_tag = atag.match(/.*http.*/g);
-
-	  			if(out_tag) {
-	  				// console.log(out_tag)
-	  				var out_obj = ConvertStringToHTML(out_tag).firstChild;
-	  				// console.log(out_obj)
-	  				if(out_obj){
-	  					node_push({id: out_obj.innerHTML, link: out_obj.href, t: "out"})
-	  					links.push({source: title, target:out_obj.innerHTML, type:"suit", t:"out"});
-	  				}
-	  			}
-	  		}
-	  		node_push({id: title, link: url, t: "in"})
-
+	  	var url = "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
+	  	var linkreg=/"(\/pkb\/.+)"/g;
+	  	if(namespace.length == 0){
+	  		linkreg = /"(\/.+)"/g;
+	  		url = "/feed.xml?rn="+Date.now();
 	  	}
-chart()
-	  }});
+	  	$.ajax({
+	  		url: url,
+	  		success: function(result){
+	  			var entry  = result.getElementsByTagName("entry")
+	  			for (var i = entry.length - 1; i >= 0; i--) {
+	  				var e = entry[i];
+	  				var title = e.querySelector("title").innerHTML
+	  				var content = e.querySelector("content").innerHTML
+	  				var url = e.querySelector('link').getAttribute('href');
+	  				console.log(result)
+	  				// var m = content.match(/"(\/pkb\/.+)"/);
+	  				var m = content.match(linkreg); // in_link
+	  				var o_l = content.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g);
 
-	  console.log(nodes)
-	  console.log(links)
-	 }
+	  				// 内联
+	  				if(m) {
+	  					for (var i = m.length - 1; i >= 0; i--) {
+		  					var ref = m[i];
+		  					// console.log(ref)
+		  					var m1 = ref.match(/(?<=Title:).+/g)
+		  					if(m1){
+									for (var j = nodes.length - 1; j >= 0; j--) {
+										var n = nodes[j];
+										// console.log(m1)
+										var _t = m1[0].replace('"','') 
+										if(_t== n.id) {
+											links.push({ source: title, target: _t,//m1[0],// 站内链接 resolved ， 站外链接 suit 
+											type: 'resolved' //"licensing", "suit", "resolved"
+											})
+										}
+									}
+		  					}
+		  				}
+		  			}
+
+
+	  				if(o_l) {
+	  					for (var i = o_l.length - 1; i >= 0; i--) {
+
+		  					var ref = o_l[i];
+		  					nodes.push({id: ref,link: ref});
+		  						links.push({ source: title, target: ref, type: 'suit' });
+		  				}
+		  			}
+
+
+						nodes.push({id: title,link: url});
+	  			}
+	  			chart()
+	  		}
+	  	})
+	}
 
 	window.onload = function(){
+		// init_canvas();
+		// chart()
 		load_data();
 	}
 </script>
