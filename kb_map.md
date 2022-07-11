@@ -168,186 +168,6 @@ layout: default
   	return svg.node();
 	}
 
-	// function dragstarted(d) {
-	// 	if (!d3.event.active) simulation.alphaTarget(0.3).restart();
-	// 	d.fx = d.x;
-	// 	d.fy = d.y;
-	// }
-
-	// function dragged( d){
-	// 	d.fx = d3.event.x;
-	// 	d.fy = d3.event.y;
-	// }
-
-	// function dragended( d){
-	// 	if (!d3.event.active) simulation.alphaTarget(0);
-	// 	d.fx = null;
-	// 	d.fy = null;
-	// }
-
-	// function init_canvas(){
-	// 	svg = d3.select('svg');
-
-	// 	color = d3.scaleOrdinal(types, d3.schemeCategory10);
-
-	// 	simulation = d3.forceSimulation()
-	// 	.force('link', d3.forceLink().id( function(d) { return d.id }))
-	// 	.force('charge', d3.forceManyBody().strength(-500))
-	// 	.force('center', d3.forceCenter(width / 2, height / 2));
-	// }
-
-	// function chart() {
-	// 	  	var link = svg.append("g")
-	// 	      .attr("class", "links")
-	// 	      // .attr("stroke-width",3.5)
-	// 	    .selectAll("line")
-	// 	    .data(links)
-	// 	    .enter().append("line")
-	// 	      .attr("stroke-width", function(d) { return Math.sqrt(d.value); });
-
-
- //  	    var node = svg.append("g")
- //      		.attr("fill", "currentColor")//currentColor
- //      		.attr("stroke-linecap", "round")
- //      		.attr("stroke-linejoin", "round")
- //    		.selectAll("g")
- //    		.data(nodes)
- //    		.enter()
- //    		.append("g");
-
- //      	node.append("circle")
-	//      	.attr("stroke", "white")
-	//      	.attr("stroke-width", 1.5)
-	//      	.attr("r", 4); // 4
-
- //      	node.append("text")
-	//     	.attr("x", 8)//8
-	//      	.attr("y", "0.31em")//0.31em
-	//      	.text(function(d) { return d.id })
-	//     	.clone(true).lower()
-	//       	.attr("fill", "none")
-	//       	.attr("stroke", "white")
-	//       	.attr("stroke-width", 3);//3
-
-	//     var drag_handler = d3.drag()
-	//     	.on("start", dragstarted)
- //      		.on("drag", dragged)
- //      		.on("end", dragended);
-
- //      	drag_handler(node)
-
- //      	simulation.nodes(nodes)
- //      		.on("tick", ticked);
-
- //  		simulation.force("link")
- //  			.links(links);
-
-	// 	var linkArc = function(d) {
-	// 		var r = Math.hypot(d.target.x - d.source.x, d.target.y - d.source.y);
-	// 		return `
-	// 		    M${d.source.x},${d.source.y}
-	// 		    A${r},${r} 0 0,1 ${d.target.x},${d.target.y}
-	// 		  `;
-	// 	}
-
- //  		function ticked() {
-	// 			link.attr("d", linkArc);
- //    		link
- //        		.attr("x1", function(d) { return d.source.x; })
- //        		.attr("y1", function(d) { return d.source.y; })
- //        		.attr("x2", function(d) { return d.target.x; })
- //        		.attr("y2", function(d) { return d.target.y; });
- //    		node
- //        		.attr("transform", function(d) {
- //          		return "translate(" + d.x + "," + d.y + ")";
- //        		})
- //  		}
-	// }
-
-// 	d3.select(window).on("resize", function(){
-		
-// simulation.alphaTarget(0.3).restart()
-// 	});
-	// function load_data(){
-	// 	var namespace = document.getElementById('namespace').value.trim();
-	//   	var url = "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
-	//   	var linkreg=/"(\/pkb\/.+)"/g;
-	//   	if(namespace.length == 0){
-	//   		linkreg = /"(\/.+)"/g;
-	//   		url = "/feed.xml?rn="+Date.now();
-	//   	}
-	//   	$.ajax({
-	//   		url: url,
-	//   		success: function(result){
-	//   			var entry  = result.getElementsByTagName("entry")
-	//   			for (var i = entry.length - 1; i >= 0; i--) {
-	//   				var e = entry[i];
-	//   				var title = e.querySelector("title").innerHTML
-	//   				var content = e.querySelector("content").innerHTML
-	//   				var url = e.querySelector('link').getAttribute('href');
-	//   				console.log(result)
-	//   				// var m = content.match(/"(\/pkb\/.+)"/);
-	//   				var m = content.match(linkreg); // in_link
-	//   				var o_l = content.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g);
-
-	//   				// 内联
-	//   				if(m) {
-	//   					for (var i = m.length - 1; i >= 0; i--) {
-	// 	  					var ref = m[i];
-	// 	  					// console.log(ref)
-	// 	  					var m1 = ref.match(/(?<=Title:).+/g)
-	// 	  					if(m1){
-	// 								for (var j = nodes.length - 1; j >= 0; j--) {
-	// 									var n = nodes[j];
-	// 									// console.log(m1)
-	// 									var _t = m1[0].replace('"','') 
-	// 									if(_t== n.id) {
-	// 										links.push({ source: title, target: _t,//m1[0],// 站内链接 resolved ， 站外链接 suit 
-	// 										type: 'resolved' //"licensing", "suit", "resolved"
-	// 										})
-	// 									}
-	// 								}
-	// 	  					}
-	// 	  				}
-	// 	  			}
-
-
-	//   				if(o_l) {
-	//   					for (var i = o_l.length - 1; i >= 0; i--) {
-
-	// 	  					var ref = o_l[i];
-	// 	  					nodes.push({id: ref,link: ref});
-	// 	  						links.push({ source: title, target: ref, type: 'suit' });
-	// 	  				}
-	// 	  			}
-
-
-	// 					nodes.push({id: title,link: url});
-	//   			}
-	//   			console.log(nodes);
-	//   			console.log(links);
-
-	//   			chart()
-	//   		}
-	//   	})
-	// }
-
-	// var load_data_i = function() {
-	// 	nodes.push({id:"Node1_IN", t:"in"});
-	// 	nodes.push({id:"Node2_IN", t:"in"});
-	// 	nodes.push({id:"Node3_IN", t:"in"});
-
-	// 	nodes.push({id:"Node1_OUT", t:"out"});
-	// 	nodes.push({id:"Node2_OUT", t:"out"});
-
-	// 	links.push({source:"Node1_IN", target:"Node2_IN", type:"resolved", t:"in"});
-	// 	links.push({source:"Node2_IN", target:"Node3_IN", type:"resolved", t:"in"});
-	// 	links.push({source:"Node3_IN", target:"Node1_OUT", type:"suit", t:"out"});
-	// 	links.push({source:"Node3_IN", target:"Node2_OUT", type:"suit", t:"out"});
-
-	// 	chart()
-	// }
-
 	var ___out____=true
 	var toggle_out = function(){
 		if(___out____) {
@@ -360,8 +180,6 @@ layout: default
 			load_data();
 			___out____ = true;
 		}
-		console.log(nodes)
-	  console.log(links)
 	}
 
 	function node_push(obj) {
@@ -467,12 +285,12 @@ layout: default
 	  		node_push({id: title, link: url, t: "in"})
 
 	  	}
-chart()
+			chart()
 	  }});
 
 	  console.log(nodes)
 	  console.log(links)
-	 }
+	}
 
 	window.onload = function(){
 		load_data();
