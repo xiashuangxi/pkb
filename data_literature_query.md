@@ -1,6 +1,11 @@
 ---
 layout: default
 ---
+
+<div class="panel horizontal border-bottom-fine-dotted-line">
+💰收费网站、🔨需要特殊方式访问
+</div>
+
 ### 文献查找
 - [深圳市图书馆](https://szlib.org.cn/index.html?locale=zh_CN)。
 - [Connected Paper](https://www.connectedpapers.com/)分析相关领域已经表论文的引用信息。
@@ -18,9 +23,9 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 <!-- 特殊化 -->
 - <div style="border: 1px solid #ffd7a5;display: inline-flex;border-radius: 2px;">
 	<div style="background-color: #ffd7a5;margin-right: 2px;">sci-hub</div>
-	<a href="https://sci-hub.se/">sci-hub.se</a>
-	<a href="https://sci-hub.st/">sci-hub.st</a>
-	<a href="https://sci-hub.ru/">sci-hub.ru</a>
+	<a href="https://sci-hub.se/">sci-hub.se</a> &nbsp;
+	<a href="https://sci-hub.st/">sci-hub.st</a> &nbsp;
+	<a href="https://sci-hub.ru/">sci-hub.ru</a> &nbsp;
   </div>
 
 ### 司法类
@@ -29,6 +34,7 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 - [国家法律法规数据库](https://flk.npc.gov.cn/)
 - [中国人民政治协商会议全国委员会](http://www.cppcc.gov.cn/)
 - [法律大数据研究服务中心](http://la.swupl.edu.cn/)《法律大数据研究服务中心》平台积极吸纳和遴选国内外优秀法学研究理论与实践研究成果，以促进中国法学成果的应用和现代化管理为宗旨，发布关注中国法学实践热点与难点的研究成果，追踪国际法学理论前沿，服务中国管理与实践的创新，推动我国法学科研成果评估走向科学化、规范化、应用化，促进法学事业的繁荣发展。 
+<!-- - [威科先行 💰](https://law.wkinfo.com.cn/) -->
 
 ### 消费
 - [中国消费者协会](https://www.cca.org.cn/)
@@ -46,6 +52,11 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 
 ### 环境
 - [全球植被观察](https://www.globalforestwatch.org/)
+
+### 百科
+- [维基百科（中文）🔨](https://zh.wikipedia.org/)
+- [维基文库（中文）🔨](https://zh.wikisource.org/)
+- [维基词典（中文）🔨](https://zh.wiktionary.org/)
 
 ### 其它
 - [中国科学院沈阳自动化研究所图书馆](http://opac.sia.cn/)
