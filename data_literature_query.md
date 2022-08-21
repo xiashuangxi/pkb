@@ -49,12 +49,13 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 
 ### 外交
 - [FOCUSdata](https://focusdataproject.com/)收集了来自俄罗斯、朝鲜、中国、伊朗等国英文官方媒体报道与外交声明数据。
+- [美国国务院外交学院历史学家办公室](https://history.state.gov/)向公众提供有关美国外交政策历史的信息，除了对外关系系列的全部档案外，还包括关于美国与世界各国关系历史的宝贵百科全书内容，及该部主要官员和使团负责人的数据库。
 
 ### 环境
 - [全球植被观察](https://www.globalforestwatch.org/)
-
-### Wiki
 <!-- 
+### Wiki
+
 - [维基百科（中文）🔨](https://zh.wikipedia.org/)
 - [维基文库（中文）🔨](https://zh.wikisource.org/)
 - [维基词典（中文）🔨](https://zh.wiktionary.org/)
