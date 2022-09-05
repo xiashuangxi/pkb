@@ -28,6 +28,7 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 	<a href="https://sci-hub.ru/">sci-hub.ru</a> &nbsp;
   </div>
  - [engineering](https://www.engineering.org.cn/default)《中国工程科学》杂志社
+ - [X-MOL](http://www.x-mol.com/)
 
 ### 司法类
 - [中国执行信息公开网](http://zxgk.court.gov.cn/)
