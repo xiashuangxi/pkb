@@ -204,6 +204,7 @@ a:hover  {
 }
 
 .flex .item {
+    padding-right: 8px;
     /* flex-grow: 4; */
     width: 20%;
     /* border: 3px solid rgba(0,0,0,.2); */
