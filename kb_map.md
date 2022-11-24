@@ -48,14 +48,75 @@ layout: default
 	.in_l::after  {
 		background-color: #2ca02c;
 	}
+
+	.in_panel {
+		left: 10px; 
+		top: 10px;
+		display: flex;
+		flex-flow: row;
+		align-items: center;
+		position: absolute;
+		user-select: none;
+	}
+	.in_panel .out_panel_info {
+		display: flex;
+		background-color: #dddddd;
+		border-radius: 4px;
+		padding: 0px 4px;
+		box-shadow: 1px 1px 0px #9b9b9b;
+	}
+
+	.in_panel .button{
+		margin-left: 10px;
+		cursor: pointer;
+		padding: 0px 6px;
+	}
+	.in_panel .button:first-child{
+		margin-left: 100px;
+	}
+	.in_panel .button:active {
+		background-color: black;
+		color:white;
+	}
+
+	.map_info {
+		right: 10px;
+    /*bottom: 155px;*/
+    bottom: 15px;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    position: absolute;
+    user-select: none;
+    background-color: #dddddd;
+    border-radius: 4px;
+    padding: 0px 4px;
+    box-shadow: 1px 1px 0px #9b9b9b;
+    background-color: #dddddd;
+	}
 </style>
-<textarea id="namespace" style='display:none'> {{namespace}} </textarea>
-<div style="display: flex;flex-flow: row;align-items: center;">
-	<div class="in_l">内联</div>
-	<div class="out_l">外联</div>
-	<input type="checkbox" style="margin-right: 2px" checked onchange="toggle_out()">显示外联
+
+<div style="position: relative;">
+	<textarea id="namespace" style='display:none'> {{namespace}} </textarea>
+	<div class="in_panel">
+		<div class="out_panel_info">
+			<div class="in_l">内联</div>
+			<div class="out_l">外联</div>
+			<div style="display: flex;align-items: center;">
+				<input type="checkbox" style="margin-right: 2px" onchange="toggle_out()"><span>显示外联</span>
+			</div>
+		</div>
+
+		<div class="out_panel_info button" title="放大">+</div>
+		<div class="out_panel_info button" title="缩小">-</div>
+	</div>
+
+	<div id="map_info" class="map_info">
+	</div>
+
+	<svg id="svg" style='width: 100%; height: 550px; border: 1px solid;'></svg>
 </div>
-<svg id="svg" style='width: 100%; height: 550px; border: 1px solid;'></svg>
+
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
 <script>
 	var svg;
@@ -103,6 +164,9 @@ layout: default
 	}
 
 	var chart = function() {
+		
+		reset_map_info(nodes,links);
+
 		document.getElementById('svg').innerHTML="";
 		
 		simulation = d3.forceSimulation(nodes)
@@ -168,7 +232,7 @@ layout: default
   	return svg.node();
 	}
 
-	var ___out____=true
+	var ___out____=false
 	var toggle_out = function(){
 		if(___out____) {
 			remove_out_link();
@@ -261,26 +325,30 @@ layout: default
 	  					links.push({source: title, target:in_obj.innerHTML, type:"resolved", t:"in"});
 	  				}
 	  			}
-	  			var out_null_tag = atag.match(/.*href="#".*/gm);
-	  			if(out_null_tag) {
-	  				var out_null_obj = ConvertStringToHTML(out_null_tag).firstChild;
-	  				if(out_null_obj){
-	  					node_push({id: out_null_obj.innerHTML, link: out_null_obj.href, t: "out"})
-	  					links.push({source: title, target:out_null_obj.innerHTML, type:"suit", t:"out"});
-	  				}
-	  			}
-	  			// var out_tag = atag.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g);
-	  			var out_tag = atag.match(/.*http.*/g);
 
-	  			if(out_tag) {
-	  				// console.log(out_tag)
-	  				var out_obj = ConvertStringToHTML(out_tag).firstChild;
-	  				// console.log(out_obj)
-	  				if(out_obj){
-	  					node_push({id: out_obj.innerHTML, link: out_obj.href, t: "out"})
-	  					links.push({source: title, target:out_obj.innerHTML, type:"suit", t:"out"});
-	  				}
-	  			}
+	  			// out
+	  			if (___out____) {
+		  			var out_null_tag = atag.match(/.*href="#".*/gm);
+		  			if(out_null_tag) {
+		  				var out_null_obj = ConvertStringToHTML(out_null_tag).firstChild;
+		  				if(out_null_obj){
+		  					node_push({id: out_null_obj.innerHTML, link: out_null_obj.href, t: "out"})
+		  					links.push({source: title, target:out_null_obj.innerHTML, type:"suit", t:"out"});
+		  				}
+		  			}
+		  			// var out_tag = atag.match(/https?:\/\/(www\.)?[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()!@:%_\+.~#?&\/\/=]*)/g);
+		  			var out_tag = atag.match(/.*http.*/g);
+
+		  			if(out_tag) {
+		  				// console.log(out_tag)
+		  				var out_obj = ConvertStringToHTML(out_tag).firstChild;
+		  				// console.log(out_obj)
+		  				if(out_obj){
+		  					node_push({id: out_obj.innerHTML, link: out_obj.href, t: "out"})
+		  					links.push({source: title, target:out_obj.innerHTML, type:"suit", t:"out"});
+		  				}
+		  			}
+		  		}
 	  		}
 	  		node_push({id: title, link: url, t: "in"})
 
@@ -295,4 +363,35 @@ layout: default
 	window.onload = function(){
 		load_data();
 	}
+
+	var reset_map_info = function(ns,ls){
+		var text = "";
+		var _in = 0;
+		var _out = 0;
+		var _in_ref = 0;
+		var _out_ref = 0;
+		for (var i = ns.length - 1; i >= 0; i--) {
+			var node = ns[i]
+			if (node.t == 'in') { _in = _in + 1;}
+			if (node.t == 'out') { _out = _out + 1;}
+		}
+
+		for (var i = ls.length - 1; i >= 0; i--) {
+			var link = ls[i]
+			if (link.t == 'in') { _in_ref = _in_ref + 1;}
+			if (link.t == 'out') { _out_ref = _out_ref + 1;}
+		}
+		// console.log(_in,_out,_in_ref,_out_ref)
+
+		document.getElementById("map_info").innerHTML= "内部文章："+_in+"篇；外部文章："+_out+"篇；内联：<span style='color:#2ca02c'>"+_in_ref+"</span>条；外联：<span style='color:#ff7f0e'>"+_out_ref+"</span>条";
+	}
+
+
+
+	
+
+	// show map_info
+	// var show_map_info = function(){
+	// 	do
+	// }
 </script>
