@@ -408,17 +408,17 @@ layout: default
 	var load_data_progress_ui_interval;
 	var show_load_data_progress_ui = function() {
 		var l = 0;
+		var progress_ui = document.getElementById("progress_ui");
+		var w = progress_ui.offsetWidth;
+		var pw = progress_ui.parentElement.offsetWidth;
+		var text = "数据加开中，请稍后";
+		progress_ui.style.display = "flex";
+		progress_ui.style.top = "50%";
+		progress_ui.style.left = (pw / 2 - w / 2) + "px";
+		progress_ui.innerHTML = text;
 		load_data_progress_ui_interval = setInterval(function() {
-			var text = "数据加开中，请稍后";
-
-			var progress_ui = document.getElementById("progress_ui");
-			var w = progress_ui.offsetWidth;
-			var pw = progress_ui.parentElement.offsetWidth;
 			
-			progress_ui.style.display = "flex";
-			progress_ui.style.top = "50%";
 			progress_ui.style.left = (pw / 2 - w / 2) + "px";
-			
 			var lt = "";
 			for (var i = (l%3); i >= 0; i--) {
 				lt = lt+'.';
