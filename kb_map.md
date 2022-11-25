@@ -94,6 +94,18 @@ layout: default
     box-shadow: 1px 1px 0px #9b9b9b;
     background-color: #dddddd;
 	}
+	.progress_ui{
+    flex-flow: row;
+    align-items: center;
+    position: absolute;
+    user-select: none;
+    background-color: #dddddd;
+    border-radius: 4px;
+    padding: 0px 4px;
+    box-shadow: 1px 1px 0px #9b9b9b;
+    background-color: #dddddd;
+    display:none;
+	}
 </style>
 
 <div style="position: relative;">
@@ -111,10 +123,13 @@ layout: default
 		<div class="out_panel_info button" title="缩小">-</div>
 	</div>
 
-	<div id="map_info" class="map_info">
-	</div>
+	<div id="map_info" class="map_info"></div>
+	<div id="progress_ui" class="progress_ui"></div>
 
-	<svg id="svg" style='width: 100%; height: 550px; border: 1px solid;'></svg>
+	<svg id="svg" style='width: 100%; height: 550px; border: 1px solid;'>
+	</svg>
+
+
 </div>
 
 <script src="{{namespace}}/assets/scripts/lib/d3.v7.min.js"></script>
@@ -299,6 +314,9 @@ layout: default
 	}
 
 	var load_data = function() {
+		// show
+	  show_load_data_progress_ui()
+
 		var namespace = document.getElementById('namespace').value.trim();
 	  var url = namespace.length == 0 ? "/feed.xml?rn="+Date.now() : "https://xiashuangxi.github.io/pkb/feed.xml?rn="+Date.now();
 
@@ -354,6 +372,7 @@ layout: default
 
 	  	}
 			chart()
+			hide_load_data_progress_ui();
 	  }});
 
 	  console.log(nodes)
@@ -386,12 +405,34 @@ layout: default
 		document.getElementById("map_info").innerHTML= "内部文章："+_in+"篇；外部文章："+_out+"篇；内联：<span style='color:#2ca02c'>"+_in_ref+"</span>条；外联：<span style='color:#ff7f0e'>"+_out_ref+"</span>条";
 	}
 
+	var load_data_progress_ui_interval;
+	var show_load_data_progress_ui = function() {
+		var l = 0;
+		load_data_progress_ui_interval = setInterval(function() {
+			var text = "数据加开中，请稍后";
 
+			var progress_ui = document.getElementById("progress_ui");
+			var w = progress_ui.offsetWidth;
+			var pw = progress_ui.parentElement.offsetWidth;
+			
+			progress_ui.style.display = "flex";
+			progress_ui.style.top = "50%";
+			progress_ui.style.left = (pw / 2 - w / 2) + "px";
+			
+			var lt = "";
+			for (var i = (l%3); i >= 0; i--) {
+				lt = lt+'.';
+			}
+			l = l + 1;
 
-	
+			progress_ui.innerHTML = text+lt;
+		}, 500);
 
-	// show map_info
-	// var show_map_info = function(){
-	// 	do
-	// }
+	}
+
+	var hide_load_data_progress_ui = function() { 
+		var progress_ui = document.getElementById("progress_ui");
+		progress_ui.style.display = "none";
+		clearInterval(load_data_progress_ui_interval);
+	}
 </script>
