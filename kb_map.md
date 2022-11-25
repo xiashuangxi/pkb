@@ -342,7 +342,7 @@ layout: default
 	  				if(in_obj){
 	  					links.push({source: title, target:in_obj.innerHTML, type:"resolved", t:"in"});
 	  				}
-	  			}
+	  			} 
 
 	  			// out
 	  			if (___out____) {
