@@ -411,7 +411,7 @@ layout: default
 		var progress_ui = document.getElementById("progress_ui");
 		var w = progress_ui.offsetWidth;
 		var pw = progress_ui.parentElement.offsetWidth;
-		var text = "数据加开中，请稍后";
+		var text = "数据加载中，请稍后";
 		progress_ui.style.display = "flex";
 		progress_ui.style.top = "50%";
 		progress_ui.style.left = (pw / 2 - w / 2) + "px";

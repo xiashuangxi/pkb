@@ -1,6 +1,7 @@
 {% include setup.html %}
+
 <!DOCTYPE html>
-<html>
+<html {% if site.gray == true %}class='gray'{% endif %}>
     <head>
         {% include {{ site.data.application.theme }}/component/header.html %}
     </head>

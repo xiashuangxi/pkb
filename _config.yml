@@ -1,3 +1,4 @@
+gray: true
 markdown: kramdown
 highlighter: rouge
 kramdown:
