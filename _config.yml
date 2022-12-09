@@ -1,4 +1,4 @@
-gray: true
+gray: false
 markdown: kramdown
 highlighter: rouge
 kramdown:
