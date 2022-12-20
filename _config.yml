@@ -1,6 +1,7 @@
 gray: false
 markdown: kramdown
 highlighter: rouge
+version: 1.0
 kramdown:
   input: GFM
   syntax_highlighter: rouge

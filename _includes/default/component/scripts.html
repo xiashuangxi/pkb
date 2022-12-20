@@ -8,6 +8,29 @@
 <script src="{{namespace}}/assets/scripts/lib/dblclick.js"></script>
 
 <script>
+	// 控制台打印出网站信息
+var ascii =         ' __  ___         ____  _                                  _   _                        _          _              _                    \n';
+	ascii = ascii + ' \\ \\/ (_) __ _  / ___|| |__  _   _  __ _ _ __   __ ___  _(_) | | ___ __   _____      _| | ___  __| | __ _  ___  | |__   __ _ ___  ___ \n';
+	ascii = ascii + "  \\  /| |/ _` | \\___ \\| '_ \\| | | |/ _` | '_ \\ / _` \\ \\/ / | | |/ / '_ \\ / _ \\ \\ /\\ / / |/ _ \\/ _` |/ _` |/ _ \\ | '_ \\ / _` / __|/ _ \\\n";
+	ascii = ascii + '  /  \\| | (_| |  ___) | | | | |_| | (_| | | | | (_| |>  <| | |   <| | | | (_) \\ V  V /| |  __/ (_| | (_| |  __/ | |_) | (_| \__ \  __/\n';
+	ascii = ascii + ' /_/\\_\\_|\\__,_| |____/|_| |_|\\__,_|\\__,_|_| |_|\\__, /_/\\_\\_| |_|\\_\\_| |_|\\___/ \\_/\\_/ |_|\\___|\\__,_|\\__, |\\___| |_.__/ \\__,_|___/\\___|\n';
+	ascii = ascii + '                                               |___/                                                |___/                             \n';
+	
+	const name = "Xia Shuangxi knowledge base";
+	const version = "{{site.version}}";
+	const build_revision = "{{site.github.build_revision}}";
+	const site = "https://xiashuangxi.github.io/pkb";
+	console.log(ascii+'\n'
+		.concat(' %c ', name, ' v' + version, ' ' + build_revision)
+		.concat(' ', '%c'+site).concat('%c \n\n')
+		,
+		// .concat(' Clone Url: {{site.github.clone_url}}\n')
+		// .concat(' Issus Url: {{site.github.issues_url}}\n')
+		// .concat(' Zip Url: {{site.github.zip_url}}\n')
+		// .concat(' Tar Url: {{site.github.tar_url}}\n'), 
+		'background: #ffb580; padding: 5px','background: #50a095;padding: 5px','');
+
+
 	// https://dictionary.cambridge.org/search/direct/p?hello
 	// english-chinese-simplified
 	// https://dictionary.cambridge.org/spellcheck/english-chinese-simplified/?q=Shuangxi
