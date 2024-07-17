@@ -65,6 +65,19 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 ### 环境
 - [全球植被观察](https://www.globalforestwatch.org/)。
 
+### 上市公司数据
+
+<div class="panel horizontal border-bottom-fine-dotted-line">
+必要时可以Taobao购买账号
+</div>
+
+- 国泰安数据库
+- 万德数据库
+- Resset企业大数据
+- Resset海关系列数据库
+- 东方财富网
+- 巨潮咨询网
+
 <!-- 
 ### Wiki
 
