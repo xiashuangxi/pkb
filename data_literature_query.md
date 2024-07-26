@@ -6,9 +6,11 @@ layout: default
 💰收费网站、🔨需要特殊方式访问
 </div>
 
-### 文献查找
+### 图书馆
 - [深圳市图书馆](https://szlib.org.cn/index.html?locale=zh_CN)。
-- [Connected Paper](https://www.connectedpapers.com/)：分析相关领域已经表论文的引用信息。
+- [上海图书馆](https://www.library.sh.cn/)。
+### 文献查找
+- [Connected Paper](https://www.connectedpapers.com/)：是一个可视化工具，指在帮助探索与工作领域相关的学术论文。
 - [Research Rabbit](https://www.researchrabbitapp.com/)：一种新的文献检索及可视化工具，它使用AI帮助我们发现相关且有趣的研究文章，这些文章是根据我们的研究方向来关联的。
 - [web of science](https://www.webofscience.com)：
 Web of Science是获取全球学术信息的重要数据库，它收录了全球13000多种权威的、高影响力的学术期刊，内容涵盖自然科学、工程技术、生物医学、社会科学、艺术与人文等领域。Web of Science收录了论文中所引用的参考文献，通过独特的引文索引，用户可以用一篇文章、一个专利号、一篇会议文献、一本期刊或者一本书作为检索词，检索它们的被引用情况，轻松回溯某一研究文献的起源与历史，或者追踪其最新进展；可以越查越广、越查越新、越查越深。Web of Science中的Science Citation Index-Expanded，即科学引文索引，是一个涵盖了自然科学领域的多学科综合数据库，共收录9000多种自然科学领域的世界权威期刊，数据最早回溯至1900年，覆盖了177个学科领域。
@@ -66,13 +68,8 @@ Web of Science是获取全球学术信息的重要数据库，它收录了全球
 - [全球植被观察](https://www.globalforestwatch.org/)。
 
 ### 上市公司数据
-
-<div class="panel horizontal border-bottom-fine-dotted-line">
-必要时可以Taobao购买账号
-</div>
-
-- 国泰安数据库
-- 万德数据库
+- [国泰安数据库](https://data.csmar.com/)：提供了大量关于中国经济、社会、科技、行业、企业等方面的统计数据。
+- [万德数据库](https://www.wind.com.cn/portal/zh/EDB/index.html)：是以金融证券数据为核心的大型金融工程和财经数据仓库。
 - Resset企业大数据
 - Resset海关系列数据库
 - 东方财富网
