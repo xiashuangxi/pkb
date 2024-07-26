@@ -9,6 +9,7 @@ layout: default
 ### 图书馆
 - [深圳市图书馆](https://szlib.org.cn/index.html?locale=zh_CN)。
 - [上海图书馆](https://www.library.sh.cn/)。
+
 ### 文献查找
 - [Connected Paper](https://www.connectedpapers.com/)：是一个可视化工具，指在帮助探索与工作领域相关的学术论文。
 - [Research Rabbit](https://www.researchrabbitapp.com/)：一种新的文献检索及可视化工具，它使用AI帮助我们发现相关且有趣的研究文章，这些文章是根据我们的研究方向来关联的。
