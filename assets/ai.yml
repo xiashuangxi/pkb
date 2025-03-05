@@ -1,0 +1,20 @@
+-
+    mod: DeepSeek
+    url: https://chat.deepseek.com/
+    desc: 推理模型
+- 
+    mod: Felo
+    url: https://felo.ai/search
+    desc: AI搜索模型
+-
+    mod: 腾讯元宝
+    url: https://yuanbao.tencent.com/chat
+    desc: 推理模型/AI搜索模型
+- 
+    mod: Perplexity Al
+    url: https://www.perplexity.ai/search
+    desc: AI搜索模型
+-
+    mod: 秘塔AI搜索
+    url: https://metaso.cn/
+    desc: AI搜索模型
